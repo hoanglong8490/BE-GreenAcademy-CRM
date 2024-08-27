@@ -46,9 +46,7 @@ CREATE TABLE employee (
 CREATE TABLE role (
     role_id SERIAL PRIMARY KEY,
     role_code VARCHAR(50) NOT NULL,
-    "status" SMALLINT,
-    create_at TIMESTAMP,
-    update_at TIMESTAMP
+    "status" SMALLINT
 );
 
 -- changeset employee_role:1
