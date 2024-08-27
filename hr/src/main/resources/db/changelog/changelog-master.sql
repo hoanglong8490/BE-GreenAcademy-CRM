@@ -2,7 +2,7 @@
 
 -- changeset department:1
 CREATE TABLE department (
-    department_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     department_name VARCHAR(255) NOT NULL,
     "description" VARCHAR(255),
     "status" BIT,
@@ -12,18 +12,18 @@ CREATE TABLE department (
 
 -- changeset position:1
 CREATE TABLE "position" (
-    position_id SERIAL PRIMARY KEY,
-    position_name VARCHAR(50) NOT NULL,
+    id SERIAL PRIMARY KEY,
     "status" SMALLINT,
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     department_id INTEGER NOT NULL,
-    FOREIGN KEY (department_id) REFERENCES department(department_id)
+    FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
 -- changeset employee:1
 CREATE TABLE employee (
-    employee_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+    employee_code VARCHAR(20) NOT NULL,
     employee_name VARCHAR(50),
     date_of_birth TIMESTAMP,
     gender SMALLINT,
@@ -38,13 +38,32 @@ CREATE TABLE employee (
     update_at TIMESTAMP,
     position_id INTEGER NOT NULL,
     department_id INTEGER NOT NULL,
-    FOREIGN KEY (position_id) REFERENCES "position"(position_id),
-    FOREIGN KEY (department_id) REFERENCES department(department_id)
+    FOREIGN KEY (position_id) REFERENCES "position"(id),
+    FOREIGN KEY (department_id) REFERENCES department(id)
+);
+
+-- changeset role:1
+CREATE TABLE role (
+    role_id SERIAL PRIMARY KEY,
+    role_code VARCHAR(50) NOT NULL,
+    "status" SMALLINT,
+    create_at TIMESTAMP,
+    update_at TIMESTAMP
+);
+
+-- changeset employee_role:1
+CREATE TABLE employee_role (
+    employee_id INTEGER NOT NULL,
+    role_id INTEGER NOT NULL,
+    PRIMARY KEY (employee_id, role_id),
+    FOREIGN KEY (employee_id) REFERENCES employee(id),
+    FOREIGN KEY (role_id) REFERENCES role(role_id)
 );
 
 -- changeset contract:1
 CREATE TABLE contract (
-    contract_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+    contract_code VARCHAR(20) NOT NULL,
     contract_category VARCHAR(50),
     content_contract VARCHAR(255),
     salary FLOAT(4),
@@ -54,12 +73,12 @@ CREATE TABLE contract (
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     employee_id INTEGER NOT NULL,
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+    FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
 
 -- changeset insurance:1
 CREATE TABLE insurance (
-    insurance_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     insurance_number VARCHAR(50) NOT NULL,
     insurance_category VARCHAR(10) NOT NULL,
     provider_address VARCHAR(255) NOT NULL,
@@ -70,36 +89,36 @@ CREATE TABLE insurance (
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     employee_id INTEGER NOT NULL,
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+    FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
 
 -- changeset qualification:1
 CREATE TABLE qualification (
-    qualification_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     qualification_name VARCHAR(50) NOT NULL,
     expiry_date TIMESTAMP,
     "status" SMALLINT,
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     employee_id INTEGER NOT NULL,
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+    FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
 
 -- changeset allowance:1
 CREATE TABLE allowance (
-    allowance_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     allowance_category VARCHAR(50) NOT NULL,
     allowance_salary FLOAT(4) NOT NULL,
     "status" SMALLINT,
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     position_id INTEGER NOT NULL,
-    FOREIGN KEY (position_id) REFERENCES "position"(position_id)
+    FOREIGN KEY (position_id) REFERENCES "position"(id)
 );
 
 -- changeset salary:1
 CREATE TABLE salary (
-    salary_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     contract_id INTEGER NOT NULL,
     overtime_id INTEGER NOT NULL,
     allowance_id INTEGER NOT NULL,
@@ -111,12 +130,12 @@ CREATE TABLE salary (
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     employee_id INTEGER NOT NULL,
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+    FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
 
 -- changeset holiday:1
 CREATE TABLE holiday (
-    holiday_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     holiday_date TIMESTAMP NOT NULL,
     "status" SMALLINT,
     create_at TIMESTAMP,
@@ -125,7 +144,7 @@ CREATE TABLE holiday (
 
 -- changeset time_tracking:1
 CREATE TABLE time_tracking (
-    time_tracking_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     time_tracking_date TIMESTAMP NOT NULL,
     salary_id INTEGER NOT NULL,
     holiday_id INTEGER NOT NULL,
@@ -135,13 +154,13 @@ CREATE TABLE time_tracking (
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     employee_id INTEGER NOT NULL,
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id),
-    FOREIGN KEY (holiday_id) REFERENCES holiday(holiday_id)
+    FOREIGN KEY (employee_id) REFERENCES employee(id),
+    FOREIGN KEY (holiday_id) REFERENCES holiday(id)
 );
 
 -- changeset overtime:1
 CREATE TABLE overtime (
-    overtime_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     overtime_date TIMESTAMP NOT NULL,
     hours FLOAT(4),
     overtime_salary FLOAT(4),
@@ -150,24 +169,24 @@ CREATE TABLE overtime (
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     employee_id INTEGER NOT NULL,
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+    FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
 
 -- changeset salary_advance:1
 CREATE TABLE salary_advance (
-    salary_advance_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     salary_advance_date TIMESTAMP NOT NULL,
     money FLOAT(4),
     "status" SMALLINT,
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     employee_id INTEGER NOT NULL,
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+    FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
 
 -- changeset time_off:1
 CREATE TABLE time_off (
-    holiday_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     date_start TIMESTAMP,
     date_end TIMESTAMP,
     day_number INTEGER,
@@ -175,12 +194,12 @@ CREATE TABLE time_off (
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     employee_id INTEGER NOT NULL,
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+    FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
 
 -- changeset reward_discipline:1
 CREATE TABLE reward_discipline (
-    reward_discipline_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     content TEXT NOT NULL,
     decision_date TIMESTAMP NOT NULL,
     money FLOAT(4),
@@ -189,12 +208,12 @@ CREATE TABLE reward_discipline (
     create_at TIMESTAMP,
     update_at TIMESTAMP,
     salary_id INTEGER NOT NULL,
-    FOREIGN KEY (salary_id) REFERENCES salary(salary_id)
+    FOREIGN KEY (salary_id) REFERENCES salary(id)
 );
 
 -- changeset work_process:1
 CREATE TABLE work_process (
-    work_process_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     time_off INTEGER NOT NULL,
     work_date TIMESTAMP NOT NULL,
     "status" SMALLINT,
@@ -202,6 +221,6 @@ CREATE TABLE work_process (
     update_at TIMESTAMP,
     employee_id INTEGER NOT NULL,
     reward_discipline_id INTEGER NOT NULL,
-    FOREIGN KEY (employee_id) REFERENCES employee(employee_id),
-    FOREIGN KEY (reward_discipline_id) REFERENCES reward_discipline(reward_discipline_id)
+    FOREIGN KEY (employee_id) REFERENCES employee(id),
+    FOREIGN KEY (reward_discipline_id) REFERENCES reward_discipline(id)
 );
