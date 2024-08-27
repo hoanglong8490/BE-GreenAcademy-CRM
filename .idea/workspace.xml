@@ -5,55 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="500cf413-91aa-4288-aed1-f5b923fd3374" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/config/CoreAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/constant/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/model/CoreResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/util/JsonUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/education/src/main/java/org/green/education/controller/EducationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/HRController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/core/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/core/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/core/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/core/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/example/core/CoreApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/example/core/coreApi/APIConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/example/core/model/CoreRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/example/core/model/CoreResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/example/core/model/CoreResponseBody.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/example/core/util/JsonUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/com/example/core/CoreApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/education/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/education/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/education/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/education/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/constant/Constant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/coreApi/CoreController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/education/src/main/java/org/green/education/model/response/EducationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/green/core/model/CoreResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/model/response/CoreResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/education/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/education/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/src/main/java/com/education/EducationApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/src/main/java/com/education/EducationClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/src/main/java/com/education/model/response/StudentResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/education/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/src/test/java/com/education/EducationApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sale/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/sale/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sale/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sale/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sale/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/sale/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sale/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/sale/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sale/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sale/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sale/src/main/java/com/sale/SaleApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sale/src/main/java/com/sale/SaleClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sale/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sale/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sale/src/test/java/com/sale/SaleApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/education/src/main/java/org/green/education/controller/EducationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/education/src/main/java/org/green/education/controller/EducationController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,9 +38,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,14 +73,22 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/N A N G/Project/backend-green",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.green.education.model.response" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -128,7 +98,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.HrApplication">
+  <component name="RunManager" selected="Spring Boot.EducationApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="green-backennd" />
       <method v="2">
@@ -195,7 +165,7 @@
       <option name="presentableId" value="Default" />
       <updated>1724724768904</updated>
       <workItem from="1724724770029" duration="2425000" />
-      <workItem from="1724727205080" duration="375000" />
+      <workItem from="1724727205080" duration="5416000" />
     </task>
     <servers />
   </component>
