@@ -12,5 +12,7 @@
         <module>core</module>
         <module>education</module>
         <module>sale</module>
+        <module>hr</module>
+        <module>receivable</module>
     </modules>
 </project>

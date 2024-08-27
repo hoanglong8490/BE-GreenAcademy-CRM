@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.green</groupId>
-    <artifactId>sale</artifactId>
+    <artifactId>hr</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sale</name>
-    <description>sale</description>
+    <name>hr</name>
+    <description>hr</description>
     <url/>
     <licenses>
         <license/>
@@ -34,7 +34,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.green</groupId>
+            <artifactId>core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
