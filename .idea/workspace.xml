@@ -64,9 +64,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -125,7 +129,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.HrApplication">
+  <component name="RunManager" selected="Spring Boot.EducationApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="green-backennd" />
       <method v="2">
