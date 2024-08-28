@@ -16,9 +16,10 @@ CREATE TABLE "position"
 (
     id            SERIAL PRIMARY KEY,
     "status"      SMALLINT,
+    position_name VARCHAR(255) NOT NULL,
     create_at     TIMESTAMP,
     update_at     TIMESTAMP,
-    department_id INTEGER NOT NULL,
+    department_id INTEGER      NOT NULL,
     FOREIGN KEY (department_id) REFERENCES department (id)
 );
 
