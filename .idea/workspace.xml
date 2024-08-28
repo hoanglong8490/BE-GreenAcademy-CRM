@@ -4,55 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="500cf413-91aa-4288-aed1-f5b923fd3374" name="Changes" comment="">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/constant/Constant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/coreApi/CoreController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/education/src/main/java/org/green/education/model/response/EducationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/green/core/model/CoreResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/model/response/CoreResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/education/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/src/main/java/org/green/education/controller/EducationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/education/src/main/java/org/green/education/controller/EducationController.java" afterDir="false" />
->>>>>>> 1516067857ca7d952bc0e90f3adc2a5601ff39c1
-=======
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Allowance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Contract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/EmployeeRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/EmployeeRoleId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Holiday.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Insurance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Overtime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Qualification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/RewardDiscipline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Salary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/SalaryAdvance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/TimeOff.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/TimeTracking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/WorkProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/259c59e3-c5d3-47bd-bd22-800a62c49023.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/259c59e3-c5d3-47bd-bd22-800a62c49023.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/259c59e3-c5d3-47bd-bd22-800a62c49023/storage_v2/_src_/database/crm_green.YlXBxg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/259c59e3-c5d3-47bd-bd22-800a62c49023/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6ac88e15-8e11-43ca-9fa2-8f0bb34aa207.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6ac88e15-8e11-43ca-9fa2-8f0bb34aa207/storage_v2/_src_/schema/be_crm_huy.L-dqzQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/733fa512-dab3-4569-857c-81501b0c8410.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/733fa512-dab3-4569-857c-81501b0c8410/storage_v2/_src_/database/crm_green.YlXBxg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/733fa512-dab3-4569-857c-81501b0c8410/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hr/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/resources/application.properties" afterDir="false" />
->>>>>>> 442dc9741c90953badbe5d05df00d7e4680b9a0b
-    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +52,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
+
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RequestMappingsPanelOrder0": "0",
@@ -254,8 +205,6 @@
       <option name="presentableId" value="Default" />
       <updated>1724724768904</updated>
       <workItem from="1724724770029" duration="2425000" />
-<<<<<<< HEAD
-<<<<<<< HEAD
       <workItem from="1724727205080" duration="375000" />
       <workItem from="1724728349665" duration="14499000" />
       <workItem from="1724812994621" duration="2370000" />
