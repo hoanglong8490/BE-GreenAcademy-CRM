@@ -16,6 +16,9 @@ public class Position {
     @Column(name = "id", nullable = false)
     private Integer id;
 
+    @Column(name = "position_name", nullable = false)
+    private String positionName;
+
     @Column(name = "status")
     private Short status;
 
