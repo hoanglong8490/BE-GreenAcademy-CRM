@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="500cf413-91aa-4288-aed1-f5b923fd3374" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/constant/Constant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/coreApi/CoreController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/education/src/main/java/org/green/education/model/response/EducationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hr/src/main/resources/db/changelog/changelog-master.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/green/core/model/CoreResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/model/response/CoreResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/education/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/src/main/java/org/green/education/controller/EducationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/education/src/main/java/org/green/education/controller/EducationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/org/green/core/constant/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/org/green/core/constant/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hr/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,11 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2lDq04DyJFHOuVnblgwHpvikBez" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -68,10 +73,10 @@
     "Spring Boot.EducationApplication.executor": "Run",
     "Spring Boot.HrApplication.executor": "Run",
     "Spring Boot.ReceivableApplication.executor": "Debug",
-    "git-widget-placeholder": "init",
+    "git-widget-placeholder": "be/huylt/validator",
     "jdk.selected.JAVA_MODULE": "openjdk-22",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/N A N G/Project/backend-green",
+    "last_opened_file_path": "C:/Users/pc/Desktop/Backend_Green/backend-green",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
@@ -82,6 +87,15 @@
     "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "actions.on.save",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "postgresql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "PostgreSQL"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -165,11 +179,23 @@
       <option name="presentableId" value="Default" />
       <updated>1724724768904</updated>
       <workItem from="1724724770029" duration="2425000" />
-      <workItem from="1724727205080" duration="5416000" />
+      <workItem from="1724727205080" duration="375000" />
+      <workItem from="1724728349665" duration="10455000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
