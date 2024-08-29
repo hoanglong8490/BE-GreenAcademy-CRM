@@ -1,24 +1,21 @@
 package org.green.hr.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.ColumnDefault;
+import lombok.experimental.Accessors;
 
-import java.time.Instant;
+import java.util.Date;
 
 @lombok.Getter
 @lombok.Setter
+@Accessors(chain = true)
 @Entity
 @Table(name = "department")
 public class Department {
     @Id
-    @ColumnDefault("nextval('department_id_seq'::regclass)")
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Size(max = 255)
     @NotNull
@@ -30,14 +27,10 @@ public class Department {
     private String description;
 
     @Column(name = "create_at")
-    private Instant createAt;
-    @Column(name = "update_at")
-    private Instant updateAt;
+    private Date createAt;
 
-/*
- TODO [Reverse Engineering] create field to map the 'status' column
- Available actions: Define target Java type | Uncomment as is | Remove column mapping
-    @Column(name = "status", columnDefinition = "bit")
-    private Object status;
-*/
+    @Column(name = "update_at")
+    private Date updateAt;
+
+
 }

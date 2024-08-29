@@ -2,9 +2,8 @@ package org.green.hr.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.annotations.ColumnDefault;
 
-import java.time.Instant;
+import java.util.Date;
 
 @lombok.Getter
 @lombok.Setter
@@ -12,15 +11,14 @@ import java.time.Instant;
 @Table(name = "time_off")
 public class TimeOff {
     @Id
-    @ColumnDefault("nextval('time_off_id_seq'::regclass)")
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "date_start")
-    private Instant dateStart;
+    private Date dateStart;
 
     @Column(name = "date_end")
-    private Instant dateEnd;
+    private Date dateEnd;
 
     @Column(name = "day_number")
     private Integer dayNumber;
@@ -29,10 +27,10 @@ public class TimeOff {
     private Short status;
 
     @Column(name = "create_at")
-    private Instant createAt;
+    private Date createAt;
 
     @Column(name = "update_at")
-    private Instant updateAt;
+    private Date updateAt;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

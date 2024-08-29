@@ -2,19 +2,19 @@ package org.green.hr.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.annotations.ColumnDefault;
+import lombok.experimental.Accessors;
 
-import java.time.Instant;
+import java.util.Date;
 
 @lombok.Getter
 @lombok.Setter
 @Entity
-@Table(name = "\"position\"")
+@Accessors(chain = true)
+@Table(name = "position")
 public class Position {
     @Id
-    @ColumnDefault("nextval('position_id_seq'::regclass)")
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "position_name", nullable = false)
     private String positionName;
@@ -23,10 +23,10 @@ public class Position {
     private Short status;
 
     @Column(name = "create_at")
-    private Instant createAt;
+    private Date createAt;
 
     @Column(name = "update_at")
-    private Instant updateAt;
+    private Date updateAt;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

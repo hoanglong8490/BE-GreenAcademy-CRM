@@ -5,9 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 
-import java.time.Instant;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -15,9 +14,8 @@ import java.time.Instant;
 @Table(name = "allowance")
 public class Allowance {
     @Id
-    @ColumnDefault("nextval('allowance_id_seq'::regclass)")
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Size(max = 50)
     @NotNull
@@ -32,10 +30,10 @@ public class Allowance {
     private Short status;
 
     @Column(name = "create_at")
-    private Instant createAt;
+    private Date createAt;
 
     @Column(name = "update_at")
-    private Instant updateAt;
+    private Date updateAt;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
