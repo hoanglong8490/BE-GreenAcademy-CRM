@@ -10,7 +10,6 @@ public class Constant {
 
     // Thông điệp phản hồi
     public static final String SUCCESS_MESSAGE = "Success";
-    public static final String CREATED_MESSAGE = "Created successfully";
     public static final String NO_CONTENT_MESSAGE = "No content available";
     public static final String BAD_REQUEST_MESSAGE = "Bad request";
     public static final String NOT_FOUND_MESSAGE = "Resource not found";

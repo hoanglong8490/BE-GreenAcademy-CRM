@@ -240,3 +240,6 @@ CREATE TABLE work_process
     FOREIGN KEY (employee_id) REFERENCES employee (id),
     FOREIGN KEY (reward_discipline_id) REFERENCES reward_discipline (id)
 );
+-- changeset contract:2
+ALTER TABLE contract
+    ALTER COLUMN content_contract TYPE TEXT;

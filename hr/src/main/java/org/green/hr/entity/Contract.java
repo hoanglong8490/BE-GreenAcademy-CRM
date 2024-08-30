@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import java.util.Date;
+import java.time.Instant;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @lombok.Getter
 @lombok.Setter
@@ -24,7 +27,6 @@ public class Contract {
     @Column(name = "contract_category", length = 50)
     private String contractCategory;
 
-    @Size(max = 255)
     @Column(name = "content_contract")
     private String contentContract;
 
@@ -50,5 +52,15 @@ public class Contract {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
+
+    // Lấy danh sách các file từ contentContract
+    public List<String> getContentContractFiles() {
+        return contentContract == null ? List.of() : Arrays.asList(contentContract.split(","));
+    }
+
+    // Thiết lập danh sách các file vào contentContract
+    public void setContentContractFiles(List<String> files) {
+        this.contentContract = files == null ? null : files.stream().collect(Collectors.joining(","));
+    }
 
 }
