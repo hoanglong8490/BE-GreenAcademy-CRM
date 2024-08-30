@@ -26,6 +26,9 @@ public class Department {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "status")
+    private Short status;
+
     @Column(name = "create_at")
     private Date createAt;
 
