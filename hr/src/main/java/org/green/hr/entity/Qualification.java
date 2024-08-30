@@ -3,9 +3,8 @@ package org.green.hr.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.ColumnDefault;
 
-import java.time.Instant;
+import java.util.Date;
 
 @lombok.Getter
 @lombok.Setter
@@ -13,8 +12,7 @@ import java.time.Instant;
 @Table(name = "qualification")
 public class Qualification {
     @Id
-    @ColumnDefault("nextval('qualification_id_seq'::regclass)")
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Size(max = 50)
@@ -23,16 +21,16 @@ public class Qualification {
     private String qualificationName;
 
     @Column(name = "expiry_date")
-    private Instant expiryDate;
+    private Date expiryDate;
 
     @Column(name = "status")
     private Short status;
 
     @Column(name = "create_at")
-    private Instant createAt;
+    private Date createAt;
 
     @Column(name = "update_at")
-    private Instant updateAt;
+    private Date updateAt;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

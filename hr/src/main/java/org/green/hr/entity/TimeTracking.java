@@ -2,10 +2,8 @@ package org.green.hr.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.annotations.ColumnDefault;
 
-import java.time.Instant;
-import java.time.LocalTime;
+import java.util.Date;
 
 @lombok.Getter
 @lombok.Setter
@@ -13,17 +11,16 @@ import java.time.LocalTime;
 @Table(name = "time_tracking")
 public class TimeTracking {
     @Id
-    @ColumnDefault("nextval('time_tracking_id_seq'::regclass)")
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotNull
     @Column(name = "time_tracking_date", nullable = false)
-    private Instant timeTrackingDate;
+    private Date timeTrackingDate;
 
     @NotNull
     @Column(name = "salary_id", nullable = false)
-    private Integer salaryId;
+    private Long salaryId;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -32,20 +29,20 @@ public class TimeTracking {
 
     @NotNull
     @Column(name = "time_in", nullable = false)
-    private LocalTime timeIn;
+    private Date timeIn;
 
     @NotNull
     @Column(name = "time_out", nullable = false)
-    private LocalTime timeOut;
+    private Date timeOut;
 
     @Column(name = "status")
     private Short status;
 
     @Column(name = "create_at")
-    private Instant createAt;
+    private Date createAt;
 
     @Column(name = "update_at")
-    private Instant updateAt;
+    private Date updateAt;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

@@ -3,7 +3,6 @@ package org.green.hr.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.ColumnDefault;
 
 import java.time.Instant;
 import java.util.Arrays;
@@ -16,9 +15,8 @@ import java.util.stream.Collectors;
 @Table(name = "contract")
 public class Contract {
     @Id
-    @ColumnDefault("nextval('contract_id_seq'::regclass)")
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Size(max = 20)
     @NotNull
@@ -36,19 +34,19 @@ public class Contract {
     private Float salary;
 
     @Column(name = "date_start")
-    private Instant dateStart;
+    private Date dateStart;
 
     @Column(name = "date_end")
-    private Instant dateEnd;
+    private Date dateEnd;
 
     @Column(name = "status")
     private Short status;
 
     @Column(name = "create_at")
-    private Instant createAt;
+    private Date createAt;
 
     @Column(name = "update_at")
-    private Instant updateAt;
+    private Date updateAt;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

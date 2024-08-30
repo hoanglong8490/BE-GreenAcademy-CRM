@@ -37,7 +37,7 @@ public class EducationController implements CoreController {
         educationResponse.setDescription("Test");
 
         response.setCode(Constant.SUCCESS);
-        response.setMessage(Constant.MESSAGE);
+        response.setMessage(Constant.SUCCESS_MESSAGE);
         response.setData(educationResponse);
 
         return response;

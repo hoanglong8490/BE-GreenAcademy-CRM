@@ -1,12 +1,8 @@
 package org.green.hr.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.ColumnDefault;
 
 @lombok.Getter
 @lombok.Setter
@@ -14,9 +10,8 @@ import org.hibernate.annotations.ColumnDefault;
 @Table(name = "role")
 public class Role {
     @Id
-    @ColumnDefault("nextval('role_role_id_seq'::regclass)")
-    @Column(name = "role_id", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Size(max = 50)
     @NotNull

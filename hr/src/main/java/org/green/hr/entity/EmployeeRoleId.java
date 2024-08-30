@@ -14,11 +14,11 @@ public class EmployeeRoleId implements java.io.Serializable {
     private static final long serialVersionUID = 5080970027542008771L;
     @NotNull
     @Column(name = "employee_id", nullable = false)
-    private Integer employeeId;
+    private Long employeeId;
 
     @NotNull
     @Column(name = "role_id", nullable = false)
-    private Integer roleId;
+    private Long roleId;
 
     @Override
     public boolean equals(Object o) {
