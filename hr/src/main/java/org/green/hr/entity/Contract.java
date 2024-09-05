@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Size;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @lombok.Getter
 @lombok.Setter
@@ -60,7 +59,7 @@ public class Contract {
 
     // Thiết lập danh sách các file vào contentContract
     public void setContentContractFiles(List<String> files) {
-        this.contentContract = files == null ? null : files.stream().collect(Collectors.joining(","));
+        this.contentContract = files == null ? null : String.join(",", files);
     }
 
 }

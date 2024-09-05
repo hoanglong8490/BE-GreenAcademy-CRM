@@ -41,7 +41,7 @@ public class EmployeeService implements IEmployeeService {
         Employee employee = employeeRepository.findById(id).orElse(null);
 
         if (employee == null) {
-            throw new RuntimeException("Employee not found");
+            return null;
         }
 
         return employeeConverter.convertToDto(employee);
