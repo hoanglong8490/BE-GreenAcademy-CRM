@@ -29,7 +29,7 @@ public class ContractController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CoreResponse> getContractById(@PathVariable int id) {
+    public ResponseEntity<CoreResponse> getContractById(@PathVariable Long id) {
         ContractDTO contract = contractService.getContractById(id);
         CoreResponse response = new CoreResponse();
         if (contract != null) {
@@ -55,7 +55,7 @@ public class ContractController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CoreResponse> updateContract(@PathVariable int id, @RequestBody ContractDTO contractDTO) {
+    public ResponseEntity<CoreResponse> updateContract(@PathVariable Long id, @RequestBody ContractDTO contractDTO) {
         ContractDTO updatedContract = contractService.updateContract(id, contractDTO);
         CoreResponse response = new CoreResponse();
         if (updatedContract != null) {
@@ -71,7 +71,7 @@ public class ContractController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<CoreResponse> deleteContract(@PathVariable int id) {
+    public ResponseEntity<CoreResponse> deleteContract(@PathVariable Long id) {
         boolean isDeleted = contractService.deleteContract(id);
         CoreResponse response = new CoreResponse();
         if (isDeleted) {

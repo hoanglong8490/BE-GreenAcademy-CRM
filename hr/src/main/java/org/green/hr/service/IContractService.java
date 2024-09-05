@@ -8,13 +8,13 @@ public interface IContractService {
 
     List<ContractDTO> getAllContracts();
 
-    ContractDTO getContractById(int id);
+    ContractDTO getContractById(Long id);
 
     ContractDTO createContract(ContractDTO contractDTO);
 
-    ContractDTO updateContract(int id, ContractDTO contractDTO);
+    ContractDTO updateContract(Long id, ContractDTO contractDTO);
 
-    boolean deleteContract(int id);
+    boolean deleteContract(Long id);
 
     List<ContractDTO> searchContractsByName(String contractName);
 

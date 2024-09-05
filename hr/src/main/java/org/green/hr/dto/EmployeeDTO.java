@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -25,4 +26,6 @@ public class EmployeeDTO {
     private Date updatedAt;
     private String position;
     private String department;
+    private List<String> contractCategory;
+    private List<String> qualificationName;
 }

@@ -10,14 +10,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ContractRepository extends JpaRepository<Contract, Integer> {
+public interface ContractRepository extends JpaRepository<Contract, Long> {
 
     @Query("SELECT c FROM Contract c WHERE c.contractCode LIKE :contractName")
     List<Contract> findByContractName(@Param("contractName") String contractName);
 
     @Modifying
     @Query("UPDATE Contract c SET c.status = 1 WHERE c.id = :id")
-    void markAsDeleted(@Param("id") int id);
+    void markAsDeleted(@Param("id") Long id);
 
     List<Contract> findAll();
 
