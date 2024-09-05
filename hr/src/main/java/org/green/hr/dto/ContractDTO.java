@@ -3,17 +3,18 @@ package org.green.hr.dto;
 import lombok.Data;
 
 import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 @Data
 public class ContractDTO {
-    private int id;
+    private Long id;
     private String contractCode;
     private String contractCategory;
     private List<String> contentContract;
     private float salary;
-    private Instant dateStart;
-    private Instant dateEnd;
+    private Date dateStart;
+    private Date dateEnd;
     private Short status;
-    private int employee_id;
+    private Long employee_id;
 }

@@ -1,6 +1,8 @@
 package org.green.hr.service.impl;
 
 import jakarta.transaction.Transactional;
+import org.green.hr.converter.EmployeeConverter;
+import org.green.hr.dto.EmployeeDTO;
 import org.green.hr.entity.Employee;
 import org.green.hr.repository.EmployeeRepository;
 import org.green.hr.service.IEmployeeService;
@@ -16,6 +18,9 @@ public class EmployeeService implements IEmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    @Autowired
+    private EmployeeConverter employeeConverter;
+
     @Transactional
     @Override
     public Employee createEmployee(Employee employee) {
@@ -23,8 +28,22 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public Page<Employee> getEmployees(int pageNo, int pageSize) {
+    public Page<EmployeeDTO> getEmployees(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
-        return employeeRepository.findAll(pageable);
+
+        Page<Employee> employees = employeeRepository.findAll(pageable);
+
+        return employees.map(employee -> employeeConverter.convertToDto(employee));
+    }
+
+    @Override
+    public EmployeeDTO getEmployeeById(Long id) {
+        Employee employee = employeeRepository.findById(id).orElse(null);
+
+        if (employee == null) {
+            throw new RuntimeException("Employee not found");
+        }
+
+        return employeeConverter.convertToDto(employee);
     }
 }

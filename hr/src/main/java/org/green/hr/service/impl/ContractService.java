@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -31,7 +32,7 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public ContractDTO getContractById(int id) {
+    public ContractDTO getContractById(Long id) {
         Optional<Contract> contract = contractRepository.findById(id);
         return contract.map(this::convertToDTO).orElse(null);
     }
@@ -39,13 +40,13 @@ public class ContractService implements IContractService {
     @Override
     public ContractDTO createContract(ContractDTO contractDTO) {
         Contract contract = convertToEntity(contractDTO);
-        contract.setCreateAt(Instant.now());
+        contract.setCreateAt(new Date());
         Contract savedContract = contractRepository.save(contract);
         return convertToDTO(savedContract);
     }
 
     @Override
-    public ContractDTO updateContract(int id, ContractDTO contractDTO) {
+    public ContractDTO updateContract(Long id, ContractDTO contractDTO) {
         Optional<Contract> existingContractOpt = contractRepository.findById(id);
         if (existingContractOpt.isPresent()) {
             Contract existingContract = existingContractOpt.get();
@@ -56,7 +57,7 @@ public class ContractService implements IContractService {
             existingContract.setDateStart(contractDTO.getDateStart());
             existingContract.setDateEnd(contractDTO.getDateEnd());
             existingContract.setStatus(contractDTO.getStatus());
-            existingContract.setUpdateAt(Instant.now());
+            existingContract.setUpdateAt(new Date());
 
             Contract updatedContract = contractRepository.save(existingContract);
             return convertToDTO(updatedContract);
@@ -73,7 +74,7 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public boolean deleteContract(int id) {
+    public boolean deleteContract(Long id) {
         Optional<Contract> contract = contractRepository.findById(id);
         if (contract.isPresent()) {
             contractRepository.markAsDeleted(id);
