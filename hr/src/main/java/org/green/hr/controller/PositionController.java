@@ -1,7 +1,6 @@
 package org.green.hr.controller;
 
 import org.green.core.constant.Constant;
-import org.green.core.coreApi.CoreController;
 import org.green.core.model.response.CoreResponse;
 import org.green.hr.entity.Position;
 import org.green.hr.service.IPositionService;
