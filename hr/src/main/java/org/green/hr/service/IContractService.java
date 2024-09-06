@@ -3,22 +3,15 @@ package org.green.hr.service;
 import org.green.hr.dto.ContractDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IContractService {
-
     List<ContractDTO> getAllContracts();
 
-    ContractDTO getContractById(Long id);
+    Optional<ContractDTO> getContractById(Long id);
 
-    ContractDTO createContract(ContractDTO contractDTO);
+    ContractDTO saveContract(ContractDTO contractDTO);
 
-    ContractDTO updateContract(Long id, ContractDTO contractDTO);
+    void deleteContract(Long id);
 
-    boolean deleteContract(Long id);
-
-    List<ContractDTO> searchContractsByName(String contractName);
-
-    List<ContractDTO> sortContractsByStatus();
-
-    List<ContractDTO> searchByCategoryAndSalary(String contractCategory, Float salary);
 }
