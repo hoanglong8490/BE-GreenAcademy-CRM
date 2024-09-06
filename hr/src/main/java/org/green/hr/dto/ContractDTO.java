@@ -8,11 +8,11 @@ import java.util.Date;
 public class ContractDTO {
     private Long id;
     private String contractCode;
+    private String employeeCode;
     private String contractCategory;
     private String contentContract;
     private Float salary;
     private Date dateStart;
     private Date dateEnd;
     private Short status;
-    private Long employee_id;
 }

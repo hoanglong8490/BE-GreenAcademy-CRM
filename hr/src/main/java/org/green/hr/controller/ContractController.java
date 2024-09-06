@@ -19,7 +19,11 @@ public class ContractController {
     private IContractService contractService;
 
     @GetMapping
-    public ResponseEntity<CoreResponse> getAllContracts() {
+    public ResponseEntity<CoreResponse> getAllContracts(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
+                                                        @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
+                                                        @RequestParam(name = "contractCategory", required = false) String contractCategory,
+                                                        @RequestParam(name = "salary", required = false) Float salary,
+                                                        @RequestParam(name = "searchKey", required = false) String searchKey) {
         List<ContractDTO> contracts = contractService.getAllContracts();
         CoreResponse response = new CoreResponse()
                 .setCode(Constant.SUCCESS)
