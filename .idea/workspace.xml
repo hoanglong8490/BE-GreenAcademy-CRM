@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/DepartmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/PositionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/EmployeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/EmployeeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IDepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IDepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IEmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IPositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IPositionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/PositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/PositionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +72,7 @@
     &quot;Spring Boot.HrApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ReceivableApplication.executor&quot;: &quot;Debug&quot;,
     &quot;git-widget-placeholder&quot;: &quot;feature/huylt/qualification&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/Backend_Green/backend-green&quot;,
@@ -119,19 +109,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.HrApplication">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="green-backennd" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="green-backennd" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="core" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.core.CoreApplication" />
@@ -171,8 +148,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -193,6 +170,9 @@
       <workItem from="1724728349665" duration="14499000" />
       <workItem from="1724812994621" duration="2370000" />
       <workItem from="1724982435790" duration="6026000" />
+      <workItem from="1725458942494" duration="946000" />
+      <workItem from="1725627396302" duration="81000" />
+      <workItem from="1725627491962" duration="582000" />
     </task>
     <servers />
   </component>
