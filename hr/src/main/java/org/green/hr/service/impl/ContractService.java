@@ -6,130 +6,84 @@ import org.green.hr.entity.Employee;
 import org.green.hr.repository.ContractRepository;
 import org.green.hr.repository.EmployeeRepository;
 import org.green.hr.service.IContractService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class ContractService implements IContractService {
+
     @Autowired
     private ContractRepository contractRepository;
-
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Override
     public List<ContractDTO> getAllContracts() {
-        return contractRepository.findAll().stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public ContractDTO getContractById(Long id) {
-        Optional<Contract> contract = contractRepository.findById(id);
-        return contract.map(this::convertToDTO).orElse(null);
-    }
-
-    @Override
-    public ContractDTO createContract(ContractDTO contractDTO) {
-        Contract contract = convertToEntity(contractDTO);
-        contract.setCreateAt(new Date());
-        Contract savedContract = contractRepository.save(contract);
-        return convertToDTO(savedContract);
-    }
-
-    @Override
-    public ContractDTO updateContract(Long id, ContractDTO contractDTO) {
-        Optional<Contract> existingContractOpt = contractRepository.findById(id);
-        if (existingContractOpt.isPresent()) {
-            Contract existingContract = existingContractOpt.get();
-            existingContract.setContractCode(contractDTO.getContractCode());
-            existingContract.setContractCategory(contractDTO.getContractCategory());
-            existingContract.setContentContract(convertFilesToString(contractDTO.getContentContract())); // Convert list to string
-            existingContract.setSalary(contractDTO.getSalary());
-            existingContract.setDateStart(contractDTO.getDateStart());
-            existingContract.setDateEnd(contractDTO.getDateEnd());
-            existingContract.setStatus(contractDTO.getStatus());
-            existingContract.setUpdateAt(new Date());
-
-            Contract updatedContract = contractRepository.save(existingContract);
-            return convertToDTO(updatedContract);
-        }
-        return null;
-    }
-
-    @Override
-    public List<ContractDTO> searchByCategoryAndSalary(String contractCategory, Float salary) {
-        List<Contract> contracts = contractRepository.findByContractCategoryAndSalary(contractCategory, salary);
-        return contracts.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public boolean deleteContract(Long id) {
-        Optional<Contract> contract = contractRepository.findById(id);
-        if (contract.isPresent()) {
-            contractRepository.markAsDeleted(id);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public List<ContractDTO> searchContractsByName(String contractName) {
-        List<Contract> contracts = contractRepository.findByContractName("%" + contractName + "%");
-        return contracts.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<ContractDTO> sortContractsByStatus() {
         List<Contract> contracts = contractRepository.findAll();
         return contracts.stream()
-                .sorted(Comparator.comparing(Contract::getStatus))
-                .map(this::convertToDTO)
+                .map(contract -> modelMapper.map(contract, ContractDTO.class))
                 .collect(Collectors.toList());
     }
 
-    private ContractDTO convertToDTO(Contract contract) {
-        ContractDTO contractDTO = new ContractDTO();
-        contractDTO.setId(contract.getId());
-        contractDTO.setContractCode(contract.getContractCode());
-        contractDTO.setContractCategory(contract.getContractCategory());
-        contractDTO.setContentContract(contract.getContentContractFiles()); // Convert string to list
-        contractDTO.setSalary(contract.getSalary());
-        contractDTO.setDateStart(contract.getDateStart());
-        contractDTO.setDateEnd(contract.getDateEnd());
-        contractDTO.setStatus(contract.getStatus());
-        contractDTO.setEmployee_id(contract.getEmployee().getId());
-        return contractDTO;
+    @Override
+    public Optional<ContractDTO> getContractById(Long id) {
+        Optional<Contract> contract = contractRepository.findById(id);
+        return contract.map(c -> modelMapper.map(c, ContractDTO.class));
     }
 
-    private Contract convertToEntity(ContractDTO contractDTO) {
+    @Override
+    public ContractDTO saveContract(ContractDTO contractDTO) {
+        // Tìm kiếm nhân viên dựa trên employeeCode
+        Employee employee = employeeRepository.findEmployeeByCode(contractDTO.getEmployeeCode())
+                .orElseThrow(() -> new RuntimeException("Employee not found with code: " + contractDTO.getEmployeeCode()));
+
+        // Tạo đối tượng Contract từ ContractDTO
         Contract contract = new Contract();
         contract.setContractCode(contractDTO.getContractCode());
         contract.setContractCategory(contractDTO.getContractCategory());
-        contract.setContentContractFiles(contractDTO.getContentContract()); // Convert list to string
+        contract.setContentContract(contractDTO.getContentContract());
         contract.setSalary(contractDTO.getSalary());
         contract.setDateStart(contractDTO.getDateStart());
         contract.setDateEnd(contractDTO.getDateEnd());
         contract.setStatus(contractDTO.getStatus());
-        Employee employee = employeeRepository.findById(contractDTO.getEmployee_id()).orElse(null);
+        contract.setCreateAt(contractDTO.getCreateAt());
+        contract.setUpdateAt(contractDTO.getUpdateAt());
         contract.setEmployee(employee);
-        return contract;
+
+        // Lưu Contract
+        Contract savedContract = contractRepository.save(contract);
+
+        // Chuyển Contract về ContractDTO để trả về
+        ContractDTO result = new ContractDTO();
+        result.setId(savedContract.getId());
+        result.setContractCode(savedContract.getContractCode());
+        result.setContractCategory(savedContract.getContractCategory());
+        result.setContentContract(savedContract.getContentContract());
+        result.setSalary(savedContract.getSalary());
+        result.setDateStart(savedContract.getDateStart());
+        result.setDateEnd(savedContract.getDateEnd());
+        result.setStatus(savedContract.getStatus());
+        result.setEmployeeCode(savedContract.getEmployee().getEmployeeCode());  // Gán lại mã nhân viên
+        result.setCreateAt(savedContract.getCreateAt());
+        result.setUpdateAt(savedContract.getUpdateAt());
+
+        return result;
     }
 
-    // Chuyển File thành String cách nhau bởi dấu ","
-    private String convertFilesToString(List<String> files) {
-        return files == null ? null : String.join(",", files);
+    @Override
+    public void deleteContract(Long id) {
+        if (contractRepository.existsById(id)) {
+            contractRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Contract not found with id: " + id);
+        }
     }
 }

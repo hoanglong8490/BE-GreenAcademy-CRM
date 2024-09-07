@@ -11,10 +11,13 @@ public class ContractDTO {
     private Long id;
     private String contractCode;
     private String contractCategory;
-    private List<String> contentContract;
+    private String contentContract;
     private float salary;
     private Date dateStart;
     private Date dateEnd;
     private Short status;
-    private Long employee_id;
+    private Date createAt;
+    private Date updateAt;
+    //    private Long employeeId;
+    private String employeeCode;
 }

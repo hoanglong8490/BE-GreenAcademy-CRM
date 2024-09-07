@@ -1,20 +1,21 @@
 package org.green.hr.controller;
 
+
 import org.green.core.constant.Constant;
 import org.green.core.model.response.CoreResponse;
 import org.green.hr.dto.ContractDTO;
 import org.green.hr.service.IContractService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/hr/contracts")
 public class ContractController {
-
     @Autowired
     private IContractService contractService;
 
@@ -30,88 +31,50 @@ public class ContractController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CoreResponse> getContractById(@PathVariable Long id) {
-        ContractDTO contract = contractService.getContractById(id);
-        CoreResponse response = new CoreResponse();
-        if (contract != null) {
-            response.setCode(Constant.SUCCESS)
-                    .setMessage("Contract found")
-                    .setData(contract);
+        Optional<ContractDTO> contract = contractService.getContractById(id);
+        if (contract.isPresent()) {
+            CoreResponse response = new CoreResponse()
+                    .setCode(Constant.SUCCESS)
+                    .setMessage(Constant.SUCCESS_MESSAGE)
+                    .setData(contract.get());
             return ResponseEntity.ok(response);
         } else {
-            response.setCode(Constant.NOT_FOUND)
-                    .setMessage(Constant.NOT_FOUND_MESSAGE);
-            return ResponseEntity.status(Constant.NOT_FOUND).body(response);
+            CoreResponse response = new CoreResponse()
+                    .setCode(Constant.NOT_FOUND)
+                    .setMessage(Constant.NOT_FOUND_MESSAGE)
+                    .setData(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
 
     @PostMapping
     public ResponseEntity<CoreResponse> createContract(@RequestBody ContractDTO contractDTO) {
-        ContractDTO createdContract = contractService.createContract(contractDTO);
+        ContractDTO savedContract = contractService.saveContract(contractDTO);
         CoreResponse response = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage(Constant.SUCCESS_MESSAGE)
-                .setData(createdContract);
-        return ResponseEntity.status(Constant.SUCCESS).body(response);
+                .setData(savedContract);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<CoreResponse> updateContract(@PathVariable Long id, @RequestBody ContractDTO contractDTO) {
-        ContractDTO updatedContract = contractService.updateContract(id, contractDTO);
-        CoreResponse response = new CoreResponse();
-        if (updatedContract != null) {
-            response.setCode(Constant.SUCCESS)
-                    .setMessage("Contract updated successfully")
-                    .setData(updatedContract);
-            return ResponseEntity.ok(response);
-        } else {
-            response.setCode(Constant.NOT_FOUND)
-                    .setMessage(Constant.NOT_FOUND_MESSAGE);
-            return ResponseEntity.status(Constant.NOT_FOUND).body(response);
-        }
+        contractDTO.setId(id);
+        ContractDTO updatedContract = contractService.saveContract(contractDTO);
+        CoreResponse response = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage(Constant.SUCCESS_MESSAGE)
+                .setData(updatedContract);
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<CoreResponse> deleteContract(@PathVariable Long id) {
-        boolean isDeleted = contractService.deleteContract(id);
-        CoreResponse response = new CoreResponse();
-        if (isDeleted) {
-            response.setCode(Constant.NO_CONTENT)
-                    .setMessage(Constant.NO_CONTENT_MESSAGE);
-            return ResponseEntity.noContent().build();
-        } else {
-            response.setCode(Constant.NOT_FOUND)
-                    .setMessage(Constant.NOT_FOUND_MESSAGE);
-            return ResponseEntity.status(Constant.NOT_FOUND).body(response);
-        }
-    }
-
-    @GetMapping("/search")
-    public ResponseEntity<CoreResponse> searchContractsByName(@RequestParam String name) {
-        List<ContractDTO> contracts = contractService.searchContractsByName(name);
+        contractService.deleteContract(id);
         CoreResponse response = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage(Constant.SUCCESS_MESSAGE)
-                .setData(contracts);
-        return ResponseEntity.ok(response);
-    }
-
-    @GetMapping("/sort/status")
-    public ResponseEntity<CoreResponse> sortContractsByStatus() {
-        List<ContractDTO> sortedContracts = contractService.sortContractsByStatus();
-        CoreResponse response = new CoreResponse()
-                .setCode(Constant.SUCCESS)
-                .setMessage(Constant.SUCCESS_MESSAGE)
-                .setData(sortedContracts);
-        return ResponseEntity.ok(response);
-    }
-
-    @GetMapping("/search/category")
-    public ResponseEntity<CoreResponse> searchByCategoryAndSalary(@RequestParam String contractCategory, @RequestParam Float salary) {
-        List<ContractDTO> contracts = contractService.searchByCategoryAndSalary(contractCategory, salary);
-        CoreResponse response = new CoreResponse()
-                .setCode(Constant.SUCCESS)
-                .setMessage(Constant.SUCCESS_MESSAGE)
-                .setData(contracts);
+                .setData(null);
         return ResponseEntity.ok(response);
     }
 }
