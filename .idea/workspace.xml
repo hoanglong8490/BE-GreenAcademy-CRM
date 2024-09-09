@@ -4,9 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="" />
-=======
     <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
@@ -20,7 +17,6 @@
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IContractService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java" afterDir="false" />
     </list>
->>>>>>> origin/hr
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,29 +80,15 @@
     &quot;Spring Boot.EducationApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.HrApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ReceivableApplication.executor&quot;: &quot;Debug&quot;,
-<<<<<<< HEAD
-    &quot;git-widget-placeholder&quot;: &quot;feature/huylt/qualification&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/Backend_Green/backend-green&quot;,
-=======
-    &quot;git-widget-placeholder&quot;: &quot;feature/anhcv/contract&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/GreenAcademy/QLNS/BE/backend-green&quot;,
->>>>>>> origin/hr
+
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-<<<<<<< HEAD
-=======
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
->>>>>>> origin/hr
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -120,11 +102,6 @@
     ]
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="org.green.education.model.response" />
-    </key>
-  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -134,42 +111,25 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.HrApplication">
-    <configuration name="CoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="core" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.core.CoreApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EducationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="education" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.education.EducationApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="HrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="hr" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.hr.HrApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.green.hr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReceivableApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="receivable" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.receivable.ReceivableApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SaleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="sale" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.sale.SaleApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.HrApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -180,43 +140,6 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="" />
-      <created>1724724768904</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1724724768904</updated>
-      <workItem from="1724724770029" duration="2425000" />
-      <workItem from="1724727205080" duration="375000" />
-      <workItem from="1724728349665" duration="14499000" />
-      <workItem from="1724812994621" duration="2370000" />
-      <workItem from="1724727205080" duration="5416000" />
-      <workItem from="1724727205080" duration="375000" />
-      <workItem from="1724728349665" duration="14499000" />
-      <workItem from="1724812994621" duration="2370000" />
-<<<<<<< HEAD
-      <workItem from="1724982435790" duration="6356000" />
-<<<<<<< HEAD
-      <workItem from="1725500560417" duration="16885000" />
-      <workItem from="1725597848117" duration="1337000" />
-      <workItem from="1725612711495" duration="985000" />
-=======
-      <workItem from="1724982435790" duration="6026000" />
-      <workItem from="1725458942494" duration="946000" />
-      <workItem from="1725627396302" duration="81000" />
-      <workItem from="1725627491962" duration="1272000" />
-      <workItem from="1725629898824" duration="6774000" />
->>>>>>> 5fd8feb2834b80f3d7c1e0e56067c9da0135e160
-=======
-      <workItem from="1725500560417" duration="6216000" />
-      <workItem from="1725516835286" duration="7497000" />
-      <workItem from="1725588738830" duration="12926000" />
-      <workItem from="1725620041434" duration="1586000" />
->>>>>>> origin/hr
-    </task>
-    <servers />
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
@@ -230,51 +153,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
