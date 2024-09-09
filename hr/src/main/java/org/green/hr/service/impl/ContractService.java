@@ -9,7 +9,6 @@ import org.green.hr.service.IContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -110,7 +109,7 @@ public class ContractService implements IContractService {
         contractDTO.setDateStart(contract.getDateStart());
         contractDTO.setDateEnd(contract.getDateEnd());
         contractDTO.setStatus(contract.getStatus());
-        contractDTO.setEmployee_id(contract.getEmployee().getId());
+//        contractDTO.setEmployee_id(contract.getEmployee().getId());
         return contractDTO;
     }
 
@@ -123,8 +122,8 @@ public class ContractService implements IContractService {
         contract.setDateStart(contractDTO.getDateStart());
         contract.setDateEnd(contractDTO.getDateEnd());
         contract.setStatus(contractDTO.getStatus());
-        Employee employee = employeeRepository.findById(contractDTO.getEmployee_id()).orElse(null);
-        contract.setEmployee(employee);
+//        Employee employee = employeeRepository.findById(contractDTO.getEmployee_id()).orElse(null);
+//        contract.setEmployee(employee);
         return contract;
     }
 
