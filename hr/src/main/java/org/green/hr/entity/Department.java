@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.experimental.Accessors;
 
 import java.util.Date;
+import org.green.hr.converter.BooleanToBitConverter;
 
 @lombok.Getter
 @lombok.Setter
@@ -13,24 +14,30 @@ import java.util.Date;
 @Entity
 @Table(name = "department")
 public class Department {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Size(max = 255)
-    @NotNull
-    @Column(name = "department_name", nullable = false)
-    private String departmentName;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Size(max = 255)
-    @Column(name = "description")
-    private String description;
+  @Size(max = 255)
+  @NotNull
+  @Column(name = "department_name", nullable = false)
+  private String departmentName;
 
-    @Column(name = "create_at")
-    private Date createAt;
+  @Size(max = 255)
+  @Column(name = "description")
+  private String description;
 
-    @Column(name = "update_at")
-    private Date updateAt;
+  @Convert(converter = BooleanToBitConverter.class)
+  @Column(name = "status", columnDefinition = "BIT")
+  private Boolean status;
+
+
+  @Column(name = "create_at")
+  private Date createAt;
+
+  @Column(name = "update_at")
+  private Date updateAt;
 
 
 }
