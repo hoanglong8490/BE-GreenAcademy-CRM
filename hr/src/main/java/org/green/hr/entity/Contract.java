@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
 
 @lombok.Getter
 @lombok.Setter
@@ -51,16 +51,5 @@ public class Contract {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
-
-
-    // Lấy danh sách các file từ contentContract
-    public List<String> getContentContractFiles() {
-        return contentContract == null ? List.of() : Arrays.asList(contentContract.split(","));
-    }
-
-    // Thiết lập danh sách các file vào contentContract
-    public void setContentContractFiles(List<String> files) {
-        this.contentContract = files == null ? null : String.join(",", files);
-    }
 
 }
