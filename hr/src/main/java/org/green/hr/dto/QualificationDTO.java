@@ -1,6 +1,7 @@
 package org.green.hr.dto;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 
@@ -10,7 +11,7 @@ public class QualificationDTO {
     private String qualificationName;
     private Long employeeId;
     private Date expiryDate;
-    private String image;
+    private String imagePath;
     private Short status;
     private Date createAt;
     private Date updateAt;

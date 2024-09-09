@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/hr/qualifications")
+@CrossOrigin
 public class QualificationController {
 
     @Autowired
@@ -32,10 +33,11 @@ public class QualificationController {
         return ResponseEntity.ok().body(coreResponse);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<CoreResponse> handleCreateQualification(@RequestBody(required = false) QualificationDTO qualificationDTO, @RequestParam("image") MultipartFile multipartFile) {
+    @PostMapping(value = "/create")
+    public ResponseEntity<CoreResponse> handleCreateQualification(@RequestBody(required = false) QualificationDTO qualificationDTO,
+                                                                  @RequestParam(name = "image") MultipartFile multipartFile) {
 
-        qualificationDTO.setImage(this.uploadFile.uploadFile(multipartFile));
+        qualificationDTO.setImagePath(uploadFile.uploadFile(multipartFile));
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)

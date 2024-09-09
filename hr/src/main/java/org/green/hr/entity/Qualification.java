@@ -32,6 +32,9 @@ public class Qualification {
     @Column(name = "update_at")
     private Date updateAt;
 
+    @Column(name = "image")
+    private String image;
+
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
