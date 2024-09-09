@@ -1,17 +1,16 @@
-package org.green.hr.dto;
+package org.green.hr.model.response;
 
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class QualificationDTO {
+public class QualificationResponse {
+
     private Long id;
     private String qualificationName;
-    private Long employeeId;
+    private String employeeName;
     private Date expiryDate;
-    private String image;
     private Short status;
-    private Date createAt;
-    private Date updateAt;
+    
 }
