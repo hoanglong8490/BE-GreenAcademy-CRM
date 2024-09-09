@@ -29,7 +29,7 @@ public class Department {
     private String description;
 
     @Column(name = "status")
-    private Short status;
+    private Boolean status;
 
     @Column(name = "create_at")
     private Date createAt;
