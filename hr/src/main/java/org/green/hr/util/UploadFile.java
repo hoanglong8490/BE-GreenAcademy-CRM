@@ -35,6 +35,6 @@ public class UploadFile {
             e.printStackTrace();
         }
         // Trả về đường dẫn của ảnh (trong thư mục static, có thể truy cập từ URL)
-        return "/images/" + fileName;
+        return "/hr_img/" + fileName;
     }
 }
