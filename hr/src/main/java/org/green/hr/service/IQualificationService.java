@@ -10,4 +10,6 @@ public interface IQualificationService {
     QualificationDTO handldeSaveQualification(QualificationDTO qualificationDTO);
 
     Page<QualificationResponse> getAllQualifications(int pageNo, int pageSize);
+
+    QualificationResponse getQualificationById(Long id);
 }

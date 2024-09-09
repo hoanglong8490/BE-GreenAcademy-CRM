@@ -40,6 +40,7 @@ public class QualificationConverter {
         qualificationResponse.setQualificationName(qualification.getQualificationName());
         qualificationResponse.setEmployeeName(qualification.getEmployee().getEmployeeName());
         qualificationResponse.setExpiryDate(qualification.getExpiryDate());
+        qualificationResponse.setImage(qualification.getImage());
         qualificationResponse.setStatus(qualification.getStatus());
 
         return qualificationResponse;

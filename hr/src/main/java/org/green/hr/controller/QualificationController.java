@@ -46,4 +46,14 @@ public class QualificationController {
 
         return ResponseEntity.ok().body(coreResponse);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CoreResponse> getQualificationById(@PathVariable("id") Long id) {
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Qualification found")
+                .setData(this.qualificationService.getQualificationById(id));
+
+        return ResponseEntity.ok().body(coreResponse);
+    }
 }

@@ -42,4 +42,9 @@ public class QualificationService implements IQualificationService {
             return this.qualificationConverter.convertToResponse(qualification);
         });
     }
+
+    @Override
+    public QualificationResponse getQualificationById(Long id) {
+        return this.qualificationConverter.convertToResponse(this.qualificationRepository.findById(id).get());
+    }
 }

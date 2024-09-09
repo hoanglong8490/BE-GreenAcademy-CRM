@@ -11,6 +11,7 @@ public class QualificationResponse {
     private String qualificationName;
     private String employeeName;
     private Date expiryDate;
+    private String image;
     private Short status;
-    
+
 }
