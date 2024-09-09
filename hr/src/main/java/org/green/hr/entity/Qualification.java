@@ -13,7 +13,7 @@ import java.util.Date;
 public class Qualification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Size(max = 50)
     @NotNull
@@ -31,6 +31,9 @@ public class Qualification {
 
     @Column(name = "update_at")
     private Date updateAt;
+
+    @Column(name = "image")
+    private String image;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
