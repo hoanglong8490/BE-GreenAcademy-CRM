@@ -76,10 +76,14 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
+<<<<<<< HEAD
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
     private List<Qualification> qualifications = new ArrayList<>();
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+=======
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+>>>>>>> 5fd8feb2834b80f3d7c1e0e56067c9da0135e160
     private List<Contract> contracts = new ArrayList<>();
 
 }

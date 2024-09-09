@@ -19,7 +19,8 @@ public class ContractController {
     private IContractService contractService;
 
     @GetMapping
-    public ResponseEntity<CoreResponse> getAllContracts() {
+    public ResponseEntity<CoreResponse> getAllContracts(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
+                                                        @RequestParam(name = "pageSize", defaultValue = "10") int pageSize) {
         List<ContractDTO> contracts = contractService.getAllContracts();
         CoreResponse response = new CoreResponse()
                 .setCode(Constant.SUCCESS)

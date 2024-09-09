@@ -4,9 +4,13 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+=======
+import java.util.Date;
+>>>>>>> 5fd8feb2834b80f3d7c1e0e56067c9da0135e160
 
 @lombok.Getter
 @lombok.Setter
@@ -52,6 +56,7 @@ public class Contract {
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
+<<<<<<< HEAD
     // Lấy danh sách các file từ contentContract
     public List<String> getContentContractFiles() {
         return contentContract == null ? List.of() : Arrays.asList(contentContract.split(","));
@@ -62,4 +67,6 @@ public class Contract {
         this.contentContract = files == null ? null : String.join(",", files);
     }
 
+=======
+>>>>>>> 5fd8feb2834b80f3d7c1e0e56067c9da0135e160
 }
