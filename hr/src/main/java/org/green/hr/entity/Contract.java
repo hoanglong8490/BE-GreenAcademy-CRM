@@ -4,11 +4,14 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+<<<<<<< HEAD
 import java.time.Instant;
 import java.util.Arrays;
+=======
+>>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @lombok.Getter
 @lombok.Setter
@@ -50,6 +53,7 @@ public class Contract {
   @Column(name = "update_at")
   private Date updateAt;
 
+<<<<<<< HEAD
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "employee_id", nullable = false)
@@ -65,4 +69,6 @@ public class Contract {
     this.contentContract = files == null ? null : files.stream().collect(Collectors.joining(","));
   }
 
+=======
+>>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
 }

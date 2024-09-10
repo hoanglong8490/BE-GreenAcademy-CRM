@@ -1,19 +1,22 @@
 package org.green.hr.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
-import java.time.Instant;
-import java.util.List;
+import java.util.Date;
 
 @Data
 public class ContractDTO {
-    private int id;
+    private Long id;
     private String contractCode;
+    private String employeeCode;
     private String contractCategory;
-    private List<String> contentContract;
+    private String contentContract;
     private float salary;
-    private Instant dateStart;
-    private Instant dateEnd;
+    private Date dateStart;
+    private Date dateEnd;
     private Short status;
-    private int employee_id;
+    private Date createAt;
+    private Date updateAt;
+//        private Long employeeId;
 }

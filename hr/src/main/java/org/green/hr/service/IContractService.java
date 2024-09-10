@@ -1,24 +1,25 @@
 package org.green.hr.service;
 
 import org.green.hr.dto.ContractDTO;
+import org.green.hr.entity.Contract;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface IContractService {
-
     List<ContractDTO> getAllContracts();
 
-    ContractDTO getContractById(int id);
+    Optional<ContractDTO> getContractById(Long id);
 
     ContractDTO createContract(ContractDTO contractDTO);
 
-    ContractDTO updateContract(int id, ContractDTO contractDTO);
+    ContractDTO saveContract(ContractDTO contractDTO);
 
-    boolean deleteContract(int id);
+    void updateContractStatus(Long id, boolean status);
 
-    List<ContractDTO> searchContractsByName(String contractName);
+    Page<Contract> searchContracts(String searchTerm, String contractCategory, Double minSalary, Double maxSalary, Pageable pageable);
 
-    List<ContractDTO> sortContractsByStatus();
-
-    List<ContractDTO> searchByCategoryAndSalary(String contractCategory, Float salary);
 }
