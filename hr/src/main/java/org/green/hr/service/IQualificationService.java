@@ -1,6 +1,7 @@
 package org.green.hr.service;
 
 import org.green.hr.dto.QualificationDTO;
+import org.green.hr.model.request.QualificationSearch;
 import org.green.hr.model.response.QualificationResponse;
 import org.springframework.data.domain.Page;
 
@@ -11,5 +12,9 @@ public interface IQualificationService {
 
     Page<QualificationResponse> getAllQualifications(int pageNo, int pageSize);
 
-    QualificationResponse getQualificationById(Long id);
+    QualificationDTO getQualificationById(Long id);
+
+    QualificationResponse updateQualification(QualificationDTO qualificationDTO, Long id);
+
+    QualificationResponse searchQualifications(int pageNo, int pageSize, QualificationSearch qualificationSearch);
 }
