@@ -70,10 +70,10 @@ public class QualificationController {
         return ResponseEntity.ok().body(coreResponse);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping(value = "/update/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<CoreResponse> updateQualification(@PathVariable("id") Long id,
-                                                            @RequestBody(required = false) QualificationDTO qualificationDTO,
-                                                            @RequestParam(name = "image", required = false) MultipartFile multipartFile) {
+                                                            @RequestPart(value = "qualificationDTO", required = false) QualificationDTO qualificationDTO,
+                                                            @RequestPart(value = "image", required = false) MultipartFile multipartFile) {
         if (multipartFile != null) qualificationDTO.setImagePath(uploadFile.uploadFile(multipartFile));
 
         CoreResponse coreResponse = new CoreResponse()

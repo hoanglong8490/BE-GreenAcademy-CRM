@@ -13,11 +13,11 @@ import java.util.UUID;
 @Component
 public class UploadFile {
 
-    // Đường dẫn lưu trữ ảnh trong thư mục resources/static/images
-    private static final String UPLOAD_DIR = "src/main/resources/static/hr_img/";
+    // Đường dẫn lưu trữ ảnh trong thư mục uploads (ngoài src)
+    private static final String UPLOAD_DIR = "uploads/hr_img/";
 
     private void makeDirectoryIfNotExists() {
-        File dir = new File(UploadFile.UPLOAD_DIR);
+        File dir = new File(UPLOAD_DIR);
         if (!dir.exists()) {
             dir.mkdirs();
         }
@@ -34,7 +34,7 @@ public class UploadFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // Trả về đường dẫn của ảnh (trong thư mục static, có thể truy cập từ URL)
+        // Trả về đường dẫn của ảnh (trong thư mục uploads, có thể truy cập từ URL)
         return "/hr_img/" + fileName;
     }
 }
