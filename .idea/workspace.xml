@@ -5,39 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/DepartmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/BooleanToBitConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hr/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/DepartmentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/DepartmentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Contract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/ContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/ContractRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/DepartmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/DepartmentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IDepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IDepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/resources/db/changelog/changelog-master.sql" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/resources/db/changelog/changelog-master.sql" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/ContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/ContractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java" afterDir="false" />
->>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,31 +54,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitToolBoxStore">
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="feature/hoanglong/department" />
-                    <option name="lastUsedInstant" value="1725865052" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1725865051" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
-  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -127,25 +81,13 @@
     "Spring Boot.EducationApplication.executor": "Run",
     "Spring Boot.HrApplication.executor": "Run",
     "Spring Boot.ReceivableApplication.executor": "Debug",
-<<<<<<< HEAD
-    "git-widget-placeholder": "feature/hoanglong/department",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "openjdk-22",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/pizzahouse/pizzahouse",
-=======
-    "git-widget-placeholder": "feature/huylt/qualification",
->>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
+    "git-widget-placeholder": "Merging feature/hoanglong/department",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-<<<<<<< HEAD
-    "project.structure.last.edited": "Modules",
-=======
     "project.structure.last.edited": "Project",
->>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.configurations.included.in.services": "true",
@@ -161,14 +103,6 @@
     ]
   }
 }]]></component>
-<<<<<<< HEAD
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="org.green.education.model.response" />
-    </key>
-  </component>
-=======
->>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -222,19 +156,6 @@
       <workItem from="1724727205080" duration="375000" />
       <workItem from="1724728349665" duration="14499000" />
       <workItem from="1724812994621" duration="2370000" />
-<<<<<<< HEAD
-      <workItem from="1725375833051" duration="24000" />
-      <workItem from="1725375874326" duration="710000" />
-      <workItem from="1725417260875" duration="24313000" />
-      <workItem from="1725460112257" duration="8176000" />
-      <workItem from="1725501780504" duration="18710000" />
-      <workItem from="1725548756806" duration="216000" />
-      <workItem from="1725548989182" duration="5888000" />
-      <workItem from="1725589712268" duration="12907000" />
-      <workItem from="1725633016981" duration="8830000" />
-      <workItem from="1725678485156" duration="4375000" />
-      <workItem from="1725849015946" duration="14885000" />
-=======
       <workItem from="1724982435790" duration="6356000" />
       <workItem from="1725500560417" duration="6216000" />
       <workItem from="1725516835286" duration="7497000" />
@@ -243,7 +164,6 @@
       <workItem from="1725623369503" duration="2560000" />
       <workItem from="1725848612133" duration="140000" />
       <workItem from="1725867295142" duration="10637000" />
->>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
     </task>
     <servers />
   </component>

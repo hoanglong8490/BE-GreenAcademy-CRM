@@ -240,12 +240,10 @@ CREATE TABLE work_process
     FOREIGN KEY (employee_id) REFERENCES employee (id),
     FOREIGN KEY (reward_discipline_id) REFERENCES reward_discipline (id)
 );
-<<<<<<< HEAD
 -- changeset contract:2
 ALTER TABLE contract
     ALTER COLUMN content_contract TYPE TEXT;
-=======
 -- changeset qualification:2
-ALTER TABLE qualification ADD COLUMN image VARCHAR(255);
->>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
+ALTER TABLE qualification
+    ADD COLUMN image VARCHAR(255);
 

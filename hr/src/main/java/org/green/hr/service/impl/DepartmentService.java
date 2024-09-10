@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.green.hr.dto.DepartmentDTO;
-import jakarta.transaction.Transactional;
 import org.green.hr.entity.Department;
 import org.green.hr.repository.DepartmentRepository;
 import org.green.hr.service.IDepartmentService;
@@ -89,13 +88,5 @@ public class DepartmentService implements IDepartmentService {
             .status(department.getStatus()).createAt(department.getCreateAt())
             .updateAt(department.getUpdateAt()).build()).collect(Collectors.toList());
   }
-    @Autowired
-    private DepartmentRepository departmentRepository;
-
-    @Transactional
-    @Override
-    public Department createDepartment(Department department) {
-        return this.departmentRepository.save(department);
-    }
 }
 

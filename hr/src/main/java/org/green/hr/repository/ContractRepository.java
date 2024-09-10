@@ -10,9 +10,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContractRepository extends JpaRepository<Contract, Long> {
-<<<<<<< HEAD
-
-=======
     @Query("SELECT c FROM Contract c JOIN c.employee e WHERE " +
             "(LOWER(e.employeeCode) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
             "LOWER(c.contractCategory) LIKE LOWER(CONCAT('%', :searchTerm, '%'))) AND " +
@@ -24,6 +21,5 @@ public interface ContractRepository extends JpaRepository<Contract, Long> {
             @Param("minSalary") Double minSalary,
             @Param("maxSalary") Double maxSalary,
             Pageable pageable);
->>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
 
 }

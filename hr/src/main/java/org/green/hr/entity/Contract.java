@@ -4,11 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-<<<<<<< HEAD
-import java.time.Instant;
-import java.util.Arrays;
-=======
->>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
 import java.util.Date;
 import java.util.List;
 
@@ -18,57 +13,43 @@ import java.util.List;
 @Entity
 @Table(name = "contract")
 public class Contract {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Size(max = 20)
+    @NotNull
+    @Column(name = "contract_code", nullable = false, length = 20)
+    private String contractCode;
 
-  @Size(max = 20)
-  @NotNull
-  @Column(name = "contract_code", nullable = false, length = 20)
-  private String contractCode;
+    @Size(max = 50)
+    @Column(name = "contract_category", length = 50)
+    private String contractCategory;
 
-  @Size(max = 50)
-  @Column(name = "contract_category", length = 50)
-  private String contractCategory;
+    @Column(name = "content_contract")
+    private String contentContract;
 
-  @Column(name = "content_contract")
-  private String contentContract;
+    @Column(name = "salary")
+    private Float salary;
 
-  @Column(name = "salary")
-  private Float salary;
+    @Column(name = "date_start")
+    private Date dateStart;
 
-  @Column(name = "date_start")
-  private Date dateStart;
+    @Column(name = "date_end")
+    private Date dateEnd;
 
-  @Column(name = "date_end")
-  private Date dateEnd;
+    @Column(name = "status")
+    private Short status;
 
-  @Column(name = "status")
-  private Short status;
+    @Column(name = "create_at")
+    private Date createAt;
 
-  @Column(name = "create_at")
-  private Date createAt;
+    @Column(name = "update_at")
+    private Date updateAt;
 
-  @Column(name = "update_at")
-  private Date updateAt;
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "employee_id", nullable = false)
+    private Employee employee;
 
-<<<<<<< HEAD
-  @NotNull
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "employee_id", nullable = false)
-  private Employee employee;
-
-  // Lấy danh sách các file từ contentContract
-  public List<String> getContentContractFiles() {
-    return contentContract == null ? List.of() : Arrays.asList(contentContract.split(","));
-  }
-
-  // Thiết lập danh sách các file vào contentContract
-  public void setContentContractFiles(List<String> files) {
-    this.contentContract = files == null ? null : files.stream().collect(Collectors.joining(","));
-  }
-
-=======
->>>>>>> a6c4baf49445b18f5fc4dad0ee8a78e459482517
 }
