@@ -83,4 +83,15 @@ public class QualificationController {
 
         return ResponseEntity.ok().body(coreResponse);
     }
+
+    @PutMapping("/delete/{id}")
+    public ResponseEntity<CoreResponse> deleteQualification(@PathVariable("id") Long id) {
+
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Qualification deleted")
+                .setData(this.qualificationService.deleteQualification(id));
+
+        return ResponseEntity.ok().body(coreResponse);
+    }
 }

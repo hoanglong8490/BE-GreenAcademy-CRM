@@ -17,4 +17,6 @@ public interface IQualificationService {
     QualificationResponse updateQualification(QualificationDTO qualificationDTO, Long id);
 
     QualificationResponse searchQualifications(int pageNo, int pageSize, QualificationSearch qualificationSearch);
+
+    QualificationResponse deleteQualification(Long id);
 }
