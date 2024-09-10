@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Contract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/ContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/ContractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/DepartmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/DepartmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IDepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IDepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/resources/db/changelog/changelog-master.sql" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/resources/db/changelog/changelog-master.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +81,7 @@
     "Spring Boot.EducationApplication.executor": "Run",
     "Spring Boot.HrApplication.executor": "Run",
     "Spring Boot.ReceivableApplication.executor": "Debug",
-    "git-widget-placeholder": "feature/huylt/qualification",
+    "git-widget-placeholder": "Merging feature/hoanglong/department",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
