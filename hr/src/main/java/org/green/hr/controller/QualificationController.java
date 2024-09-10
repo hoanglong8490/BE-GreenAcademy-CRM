@@ -70,16 +70,27 @@ public class QualificationController {
         return ResponseEntity.ok().body(coreResponse);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping(value = "/update/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<CoreResponse> updateQualification(@PathVariable("id") Long id,
-                                                            @RequestBody(required = false) QualificationDTO qualificationDTO,
-                                                            @RequestParam(name = "image", required = false) MultipartFile multipartFile) {
+                                                            @RequestPart(value = "qualificationDTO", required = false) QualificationDTO qualificationDTO,
+                                                            @RequestPart(value = "image", required = false) MultipartFile multipartFile) {
         if (multipartFile != null) qualificationDTO.setImagePath(uploadFile.uploadFile(multipartFile));
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage("Qualification updated")
                 .setData(this.qualificationService.updateQualification(qualificationDTO, id));
+
+        return ResponseEntity.ok().body(coreResponse);
+    }
+
+    @PutMapping("/delete/{id}")
+    public ResponseEntity<CoreResponse> deleteQualification(@PathVariable("id") Long id) {
+
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Qualification deleted")
+                .setData(this.qualificationService.deleteQualification(id));
 
         return ResponseEntity.ok().body(coreResponse);
     }

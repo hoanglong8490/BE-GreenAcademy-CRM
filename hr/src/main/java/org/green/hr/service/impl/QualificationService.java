@@ -76,4 +76,16 @@ public class QualificationService implements IQualificationService {
     public QualificationResponse searchQualifications(int pageNo, int pageSize, QualificationSearch qualificationSearch) {
         return null;
     }
+
+    @Transactional
+    @Override
+    public QualificationResponse deleteQualification(Long id) {
+
+        Qualification qualification = this.qualificationRepository.findById(id).orElse(null);
+
+        if(qualification != null) qualification.setStatus((short) 0);
+
+        assert qualification != null;
+        return this.qualificationConverter.convertToResponse(this.qualificationRepository.saveAndFlush(qualification));
+    }
 }
