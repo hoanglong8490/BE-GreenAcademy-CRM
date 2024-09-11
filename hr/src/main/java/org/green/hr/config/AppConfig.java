@@ -1,6 +1,5 @@
 package org.green.hr.config;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,10 +12,4 @@ public class AppConfig {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
-    @Bean
-    public ModelMapper modelMapper() {
-        return new ModelMapper();
-    }
-    
 }
