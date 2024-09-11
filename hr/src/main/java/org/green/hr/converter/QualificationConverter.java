@@ -28,7 +28,7 @@ public class QualificationConverter {
         qualification.setStatus(qualificationDTO.getStatus());
         qualification.setExpiryDate(qualificationDTO.getExpiryDate());
         qualification.setCreateAt(new Date());
-        qualification.setEmployee(this.employeeRepository.getReferenceById(qualificationDTO.getEmployeeId()));
+        qualification.setEmployee(this.employeeRepository.findById(qualificationDTO.getEmployeeId()).get());
 
         return qualification;
     }
@@ -44,5 +44,20 @@ public class QualificationConverter {
         qualificationResponse.setStatus(qualification.getStatus());
 
         return qualificationResponse;
+    }
+
+    public QualificationDTO convertToDTO(Qualification qualification) {
+        QualificationDTO qualificationDTO = new QualificationDTO();
+
+        qualificationDTO.setId(qualification.getId());
+        qualificationDTO.setQualificationName(qualification.getQualificationName());
+        qualificationDTO.setEmployeeId(qualification.getEmployee().getId());
+        qualificationDTO.setExpiryDate(qualification.getExpiryDate());
+        qualificationDTO.setStatus(qualification.getStatus());
+        qualificationDTO.setImagePath(qualification.getImage());
+        qualificationDTO.setCreateAt(qualification.getCreateAt());
+        qualificationDTO.setUpdateAt(qualification.getUpdateAt());
+
+        return qualificationDTO;
     }
 }
