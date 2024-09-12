@@ -61,8 +61,10 @@ public class QualificationService implements IQualificationService {
 
         if (qualification != null) {
             qualification.setQualificationName(qualificationDTO.getQualificationName());
-            qualification.setEmployee(this.employeeRepository.findById(qualificationDTO.getEmployeeId()).orElse(null));
-            if(qualificationDTO.getImagePath() != null || !qualificationDTO.getImagePath().isEmpty()) qualification.setImage(qualificationDTO.getImagePath());
+            qualification.setEmployee(this.employeeRepository.findByEmployeeName(qualificationDTO.getEmployeeName()));
+            if(qualificationDTO.getImagePath() != null){
+                if(!qualificationDTO.getImagePath().isEmpty()) qualification.setImage(qualificationDTO.getImagePath());
+            }
             qualification.setStatus(qualificationDTO.getStatus());
             qualification.setExpiryDate(qualificationDTO.getExpiryDate());
             qualification.setUpdateAt(new Date());
@@ -87,5 +89,10 @@ public class QualificationService implements IQualificationService {
 
         assert qualification != null;
         return this.qualificationConverter.convertToResponse(this.qualificationRepository.saveAndFlush(qualification));
+    }
+
+    @Override
+    public Page<QualificationResponse> filterQualification(int pageNo, int pageSize, QualificationSearch qualificationSearch) {
+        return null;
     }
 }

@@ -19,4 +19,6 @@ public interface IQualificationService {
     QualificationResponse searchQualifications(int pageNo, int pageSize, QualificationSearch qualificationSearch);
 
     QualificationResponse deleteQualification(Long id);
+
+    Page<QualificationResponse> filterQualification(int pageNo, int pageSize, QualificationSearch qualificationSearch);
 }
