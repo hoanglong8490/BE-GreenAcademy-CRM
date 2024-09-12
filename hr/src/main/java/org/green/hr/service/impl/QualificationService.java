@@ -43,9 +43,7 @@ public class QualificationService implements IQualificationService {
 
         Page<Qualification> qualifications = this.qualificationRepository.findAll(pageable);
 
-        return qualifications.map((qualification) -> {
-            return this.qualificationConverter.convertToResponse(qualification);
-        });
+        return qualifications.map((qualification) -> this.qualificationConverter.convertToResponse(qualification));
     }
 
     @Override
@@ -93,6 +91,8 @@ public class QualificationService implements IQualificationService {
 
     @Override
     public Page<QualificationResponse> filterQualification(int pageNo, int pageSize, QualificationSearch qualificationSearch) {
-        return null;
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Qualification> qualifications = this.qualificationRepository.findByStatusAndKeyword(qualificationSearch.getStatus(), qualificationSearch.getKeyword(), pageable);
+        return qualifications.map((qualification) -> this.qualificationConverter.convertToResponse(qualification));
     }
 }

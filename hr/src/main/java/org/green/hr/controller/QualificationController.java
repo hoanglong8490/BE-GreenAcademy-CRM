@@ -39,7 +39,11 @@ public class QualificationController {
     public ResponseEntity<CoreResponse> searchQualifications(@RequestParam(name = "pageNo", defaultValue = "1", required = false) int pageNo,
                                                              @RequestParam(name = "pageSize", defaultValue = "10", required = false) int pageSize,
                                                              @RequestBody(required = false) QualificationSearch qualificationSearch) {
-        return null;
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Filter success")
+                .setData(this.qualificationService.filterQualification(pageNo, pageSize, qualificationSearch));
+        return ResponseEntity.ok().body(coreResponse);
     }
 
     @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
