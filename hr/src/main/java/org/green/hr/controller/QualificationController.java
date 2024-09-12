@@ -39,10 +39,13 @@ public class QualificationController {
     public ResponseEntity<CoreResponse> searchQualifications(@RequestParam(name = "pageNo", defaultValue = "1", required = false) int pageNo,
                                                              @RequestParam(name = "pageSize", defaultValue = "10", required = false) int pageSize,
                                                              @RequestBody(required = false) QualificationSearch qualificationSearch) {
+
+        if(qualificationSearch == null) qualificationSearch = new QualificationSearch();
+
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage("Filter success")
-                .setData(this.qualificationService.filterQualification(pageNo, pageSize, qualificationSearch));
+                .setData(this.qualificationService.filterQualification(pageNo - 1, pageSize, qualificationSearch));
         return ResponseEntity.ok().body(coreResponse);
     }
 

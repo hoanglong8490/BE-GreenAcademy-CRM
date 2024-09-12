@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class QualificationSearch {
 
-    private Short status;
-    private String keyword;
+    private Short status = -1;
+    private String keyword = "";
+
 }
