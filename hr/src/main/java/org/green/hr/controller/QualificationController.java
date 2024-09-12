@@ -38,9 +38,10 @@ public class QualificationController {
     @GetMapping("/search")
     public ResponseEntity<CoreResponse> searchQualifications(@RequestParam(name = "pageNo", defaultValue = "1", required = false) int pageNo,
                                                              @RequestParam(name = "pageSize", defaultValue = "10", required = false) int pageSize,
-                                                             @RequestBody(required = false) QualificationSearch qualificationSearch) {
+                                                             @RequestParam(name = "status", required = false, defaultValue = "") Short status,
+                                                             @RequestParam(name = "keyword", required = false, defaultValue = "") String keyword) {
 
-        if(qualificationSearch == null) qualificationSearch = new QualificationSearch();
+        QualificationSearch qualificationSearch = new QualificationSearch(status, keyword);
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)

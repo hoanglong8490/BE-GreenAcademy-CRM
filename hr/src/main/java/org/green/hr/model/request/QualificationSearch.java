@@ -1,11 +1,13 @@
 package org.green.hr.model.request;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class QualificationSearch {
 
-    private Short status = -1;
-    private String keyword = "";
-
+    private Short status;
+    private String keyword;
 }

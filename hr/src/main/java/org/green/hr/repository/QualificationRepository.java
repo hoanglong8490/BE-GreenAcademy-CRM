@@ -13,12 +13,10 @@ import org.springframework.stereotype.Repository;
 public interface QualificationRepository extends JpaRepository<Qualification, Long> {
 
     @Query("SELECT q FROM Qualification q WHERE "
-            + "q.status = :status AND "
-            + "LOWER(q.qualificationName) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+            + "(:status IS NULL OR q.status = :status) AND "
+            + "(:keyword IS NULL OR LOWER(q.qualificationName) LIKE LOWER(CONCAT('%', :keyword, '%')))")
     Page<Qualification> findByStatusAndKeyword(
             @Param("status") Short status,
             @Param("keyword") String keyword,
             Pageable pageable);
-
-
 }
