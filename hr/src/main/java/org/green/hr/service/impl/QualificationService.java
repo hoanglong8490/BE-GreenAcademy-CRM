@@ -9,13 +9,17 @@ import org.green.hr.model.response.QualificationResponse;
 import org.green.hr.repository.EmployeeRepository;
 import org.green.hr.repository.QualificationRepository;
 import org.green.hr.service.IQualificationService;
+import org.green.hr.util.ExcelHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class QualificationService implements IQualificationService {
@@ -95,4 +99,20 @@ public class QualificationService implements IQualificationService {
         Page<Qualification> qualifications = this.qualificationRepository.findByStatusAndKeyword(qualificationSearch.getStatus(), qualificationSearch.getKeyword(), pageable);
         return qualifications.map((qualification) -> this.qualificationConverter.convertToResponse(qualification));
     }
+
+    @Transactional
+	@Override
+	public void importDataFromExcel(MultipartFile multipartFile) {
+		try {
+            List<QualificationDTO> qualifications = ExcelHelper.excelToEntities(multipartFile.getInputStream());
+
+            for(QualificationDTO it : qualifications) {
+            	Qualification qualification = this.qualificationConverter.convertToEntity(it);
+            	this.qualificationRepository.save(qualification);
+            }
+            
+        } catch (IOException e) {
+            throw new RuntimeException("fail to store data: " + e.getMessage());
+        }
+	}
 }
