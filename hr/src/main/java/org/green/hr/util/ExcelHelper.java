@@ -20,23 +20,21 @@ public class ExcelHelper {
             Iterator<Row> rows = sheet.iterator();
 
             List<QualificationDTO> qualificationDTOs = new ArrayList<>();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); // Định dạng ngày trong Excel
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-            // Bỏ qua dòng header nếu có
             rows.next();
 
             while (rows.hasNext()) {
                 Row row = rows.next();
                 QualificationDTO dto = new QualificationDTO();
 
-                // Giả sử các cột trong Excel được xếp theo thứ tự: qualificationName, employeeName, expiryDate
                 dto.setQualificationName(row.getCell(0).getStringCellValue());
                 dto.setEmployeeName(row.getCell(1).getStringCellValue());
 
-                // Chuyển đổi dữ liệu ngày tháng
                 String expiryDateString = row.getCell(2).getStringCellValue();
                 Date expiryDate = dateFormat.parse(expiryDateString);
                 dto.setExpiryDate(expiryDate);
+                dto.setStatus((short) 1);
 
                 qualificationDTOs.add(dto);
             }

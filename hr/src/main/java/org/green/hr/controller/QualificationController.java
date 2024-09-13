@@ -53,7 +53,6 @@ public class QualificationController {
     
     @PostMapping("/upload/excel")
     public ResponseEntity<CoreResponse> uploadFile(@RequestParam("file") MultipartFile file) {
-        // Kiểm tra xem file có rỗng không
         if (file.isEmpty()) {
         	
         	CoreResponse coreResponse = new CoreResponse()
@@ -64,7 +63,6 @@ public class QualificationController {
         }
 
         try {
-            // Gọi service để xử lý và lưu dữ liệu
             this.qualificationService.importDataFromExcel(file);
             
             CoreResponse coreResponse = new CoreResponse()
