@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="075fe4c7-7163-4d0d-b237-f54499cacc56" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/model/request/QualificationSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/model/request/QualificationSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/QualificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/QualificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/hr_img/0a5a0e35-1f31-48f3-8f12-c6544354f61d_Anh 2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/hr_img/157f904e-f5e8-40c1-b67f-84158c8bd53d_Anh 3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/hr_img/2f933c94-88a1-4242-ab1c-194cd64ee20b_Anh 5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/hr_img/93041843-be0c-4364-be3c-5b2a81b30246_b8f7969983c4249a7dd5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/hr_img/9cc2e5ab-fbe2-4692-959d-882d3664f76b_Anh 4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/hr_img/e6e2cb57-a97a-470d-8db2-18418f4147ad_Anh 6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,28 +35,29 @@
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HrApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.CoreApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.HrApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/huylt/qualification&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.HrApplication.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.CoreApplication.executor": "Run",
+    "Spring Boot.HrApplication.executor": "Run",
+    "git-widget-placeholder": "feature/huylt/qualification",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -131,11 +136,15 @@
       <workItem from="1726063280733" duration="825000" />
       <workItem from="1726066053501" duration="142000" />
       <workItem from="1726069362345" duration="3099000" />
+      <workItem from="1726138045591" duration="4996000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
