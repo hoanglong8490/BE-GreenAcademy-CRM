@@ -8,6 +8,7 @@ import java.util.Date;
 public class QualificationDTO {
     private Long id;
     private String qualificationName;
+    private String employeeName;
     private Long employeeId;
     private Date expiryDate;
     private String imagePath;
