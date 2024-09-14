@@ -4,21 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="075fe4c7-7163-4d0d-b237-f54499cacc56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/0a5a0e35-1f31-48f3-8f12-c6544354f61d_Anh 2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/157f904e-f5e8-40c1-b67f-84158c8bd53d_Anh 3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/2f933c94-88a1-4242-ab1c-194cd64ee20b_Anh 5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/93041843-be0c-4364-be3c-5b2a81b30246_b8f7969983c4249a7dd5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/9cc2e5ab-fbe2-4692-959d-882d3664f76b_Anh 4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/e6e2cb57-a97a-470d-8db2-18418f4147ad_Anh 6.jpg" afterDir="false" />
+    <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/DepartmentConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/DepartmentException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/GlobalExceptionHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/util/ExcelHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/util/ExcelHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hr/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/BooleanToBitConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/DepartmentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/DepartmentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IDepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IDepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/hr">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,34 +59,51 @@
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2lrypfr2W3f6RyRrDY1foxxktcD" />
+  <component name="ProjectId" id="2lDq04DyJFHOuVnblgwHpvikBez" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.HrApplication.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.CoreApplication.executor": "Run",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.EducationApplication.executor": "Run",
     "Spring Boot.HrApplication.executor": "Run",
-    "git-widget-placeholder": "feature/huylt/qualification",
+    "Spring Boot.ReceivableApplication.executor": "Debug",
+    "git-widget-placeholder": "feature/hoanglong/department",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "actions.on.save",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "postgresql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "PostgreSQL"
+    ]
   }
 }]]></component>
   <component name="RunDashboard">
@@ -69,10 +115,10 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.HrApplication">
-    <configuration name="HrApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.green.hr.HrApplication" />
+  <component name="RunManager">
+    <configuration name="HrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="hr" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.hr.HrApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.green.hr.*" />
@@ -83,98 +129,102 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="core" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.core.CoreApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EducationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="education" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.education.EducationApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="hr" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.hr.HrApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReceivableApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="receivable" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.receivable.ReceivableApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SaleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="sale" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.sale.SaleApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HrApplication" />
+        <item itemvalue="Spring Boot.HrApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="075fe4c7-7163-4d0d-b237-f54499cacc56" name="Changes" comment="" />
-      <created>1725952674628</created>
+      <changelist id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="" />
+      <created>1724724768904</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1725952674628</updated>
-      <workItem from="1725952676666" duration="2575000" />
-      <workItem from="1725955265393" duration="850000" />
-      <workItem from="1726061066160" duration="1156000" />
-      <workItem from="1726063280733" duration="825000" />
-      <workItem from="1726066053501" duration="142000" />
-      <workItem from="1726069362345" duration="3099000" />
-      <workItem from="1726138045591" duration="4996000" />
+      <updated>1724724768904</updated>
+      <workItem from="1724724770029" duration="2425000" />
+      <workItem from="1724727205080" duration="375000" />
+      <workItem from="1724728349665" duration="14499000" />
+      <workItem from="1724812994621" duration="2370000" />
+      <workItem from="1724727205080" duration="5416000" />
+      <workItem from="1724727205080" duration="375000" />
+      <workItem from="1724728349665" duration="14499000" />
+      <workItem from="1724812994621" duration="2370000" />
+      <workItem from="1724982435790" duration="6356000" />
+      <workItem from="1725500560417" duration="6216000" />
+      <workItem from="1725516835286" duration="7497000" />
+      <workItem from="1725588738830" duration="12926000" />
+      <workItem from="1725620041434" duration="2252000" />
+      <workItem from="1725623369503" duration="2560000" />
+      <workItem from="1725848612133" duration="140000" />
+      <workItem from="1725867295142" duration="10637000" />
+      <workItem from="1725939545589" duration="1305000" />
+      <workItem from="1725946846418" duration="7644000" />
+      <workItem from="1725978576118" duration="823000" />
+      <workItem from="1726021852176" duration="983000" />
+      <workItem from="1726026608643" duration="26578000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/QualificationService.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="7" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>36</line>
+          <properties class="org.green.hr.controller.QualificationController" method="handleCreateQualification">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/QualificationService.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/QualificationService.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/QualificationService.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/QualificationService.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
