@@ -30,11 +30,9 @@ public class ContractService implements IContractService {
     private ModelMapper modelMapper;
 
     @Override
-    public List<ContractDTO> getAllContracts() {
-        List<Contract> contracts = contractRepository.findAll();
-        return contracts.stream()
-                .map(contract -> modelMapper.map(contract, ContractDTO.class))
-                .collect(Collectors.toList());
+    public Page<ContractDTO> getAllContracts(Pageable pageable) {
+        Page<Contract> contractsPage = contractRepository.findAll(pageable);
+        return contractsPage.map(contract -> modelMapper.map(contract, ContractDTO.class));
     }
 
     @Override
@@ -142,7 +140,7 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public Page<Contract> searchContracts(String searchTerm, String contractCategory, Double minSalary, Double maxSalary, Pageable pageable) {
+    public Page<ContractDTO> searchContracts(String searchTerm, String contractCategory, Double minSalary, Double maxSalary, Pageable pageable) {
         // Điều chỉnh searchTerm nếu không rỗng
         if (searchTerm != null && !searchTerm.isEmpty()) {
             searchTerm = "%" + searchTerm.toLowerCase() + "%";
@@ -155,14 +153,18 @@ public class ContractService implements IContractService {
             contractCategory = "%";
         }
 
-        // Truyền các tham số vào phương thức của repository
-        return contractRepository.findBySearchTermAndTypeAndSalaryBetween(
+        Page<Contract> contractsPage = contractRepository.findBySearchTermAndTypeAndSalaryBetween(
                 searchTerm,
                 contractCategory,
                 minSalary != null ? minSalary : 0.0,
                 maxSalary != null ? maxSalary : Double.MAX_VALUE,
-                pageable);
+                pageable
+        );
+
+        return contractsPage.map(contract -> modelMapper.map(contract, ContractDTO.class));
     }
+
+
 
 
 }
