@@ -243,3 +243,7 @@ CREATE TABLE work_process
 -- changeset contract:2
 ALTER TABLE contract
     ALTER COLUMN content_contract TYPE TEXT;
+-- changeset qualification:2
+ALTER TABLE qualification
+    ADD COLUMN image VARCHAR(255);
+

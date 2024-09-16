@@ -1,8 +1,18 @@
 package org.green.hr.service;
 
-import org.green.hr.entity.Department;
+import java.util.List;
+import org.green.hr.dto.DepartmentDTO;
 
 public interface IDepartmentService {
 
-    Department createDepartment(Department department);
+  DepartmentDTO addDepartment(DepartmentDTO departmentDTO);
+
+  DepartmentDTO updateDepartment(long departmentId, DepartmentDTO departmentDTO);
+
+  DepartmentDTO deleteDepartment(long departmentId);
+
+  List<DepartmentDTO> getAllDepartment();
+
+  List<DepartmentDTO> getDepartmentById(long departmentId);
+
 }
