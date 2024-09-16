@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hr/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/DepartmentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/DepartmentDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/GlobalExceptionHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/GlobalExceptionHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/DepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +212,7 @@
       <workItem from="1725978576118" duration="823000" />
       <workItem from="1726021852176" duration="983000" />
       <workItem from="1726026608643" duration="26578000" />
-      <workItem from="1726469888259" duration="1759000" />
+      <workItem from="1726469888259" duration="2092000" />
     </task>
     <servers />
   </component>
