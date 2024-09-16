@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="075fe4c7-7163-4d0d-b237-f54499cacc56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/TimeSheetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/model/request/TimeSheetSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/model/response/TimeSheetResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/AllowanceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/model/request/AllowanceSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/model/response/AllowanceResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Holiday.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Holiday.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/TimeTracking.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/TimeTracking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/AllowanceDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/AllowanceDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/AllowanceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/AllowanceRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +53,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.CoreApplication.executor": "Run",
     "Spring Boot.HrApplication.executor": "Run",
-    "git-widget-placeholder": "feature/huylt/crm__timesheet",
+    "git-widget-placeholder": "feature/huylt/crm__allowance",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
