@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="075fe4c7-7163-4d0d-b237-f54499cacc56" name="Changes" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/0a5a0e35-1f31-48f3-8f12-c6544354f61d_Anh 2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/157f904e-f5e8-40c1-b67f-84158c8bd53d_Anh 3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/2f933c94-88a1-4242-ab1c-194cd64ee20b_Anh 5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/93041843-be0c-4364-be3c-5b2a81b30246_b8f7969983c4249a7dd5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/9cc2e5ab-fbe2-4692-959d-882d3664f76b_Anh 4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hr_img/e6e2cb57-a97a-470d-8db2-18418f4147ad_Anh 6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/util/ExcelHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/util/ExcelHelper.java" afterDir="false" />
->>>>>>> 45822cff282265e4ee9c2968d26384f62ca54b6a
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.CoreApplication.executor": "Run",
     "Spring Boot.HrApplication.executor": "Run",
-    "git-widget-placeholder": "feature/huylt/qualification",
+    "git-widget-placeholder": "feature/huylt/crm__position",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -127,6 +117,14 @@
         <item itemvalue="Application.HrApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
