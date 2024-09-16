@@ -26,6 +26,15 @@ public class PositionController {
 
     @Autowired
     private IPositionService iPositionService;
+
+    @GetMapping("/all")
+    public ResponseEntity<CoreResponse> getAllPositions() {
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Get all positions success")
+                .setData(this.iPositionService.getAllPositions());
+        return ResponseEntity.ok().body(coreResponse);
+    }
     
     @GetMapping("/search")
     public ResponseEntity<CoreResponse> searchPositions(@RequestParam(name = "pageNo", defaultValue = "1", required = false) int pageNo,
