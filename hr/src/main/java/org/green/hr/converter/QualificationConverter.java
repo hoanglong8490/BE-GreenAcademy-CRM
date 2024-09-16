@@ -1,7 +1,5 @@
 package org.green.hr.converter;
 
-import java.util.Date;
-
 import org.green.hr.dto.QualificationDTO;
 import org.green.hr.entity.Qualification;
 import org.green.hr.model.response.QualificationResponse;
@@ -23,7 +21,6 @@ public class QualificationConverter {
         qualification.setImage(qualificationDTO.getImagePath());
         qualification.setStatus(qualificationDTO.getStatus());
         qualification.setExpiryDate(qualificationDTO.getExpiryDate());
-        qualification.setCreateAt(new Date());
         if(qualificationDTO.getEmployeeId() != null) qualification.setEmployee(this.employeeRepository.findById(qualificationDTO.getEmployeeId()).get());
         else if(qualificationDTO.getEmployeeName() != null) {
         	qualification.setEmployee(this.employeeRepository.findByEmployeeName(qualificationDTO.getEmployeeName()));

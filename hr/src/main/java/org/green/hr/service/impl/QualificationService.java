@@ -37,6 +37,7 @@ public class QualificationService implements IQualificationService {
     @Override
     public QualificationDTO handldeSaveQualification(QualificationDTO qualificationDTO) {
         Qualification qualification = this.qualificationConverter.convertToEntity(qualificationDTO);
+        qualification.setCreateAt(new Date());
         this.qualificationRepository.save(qualification);
         return qualificationDTO;
     }
@@ -104,7 +105,7 @@ public class QualificationService implements IQualificationService {
 	@Override
 	public void importDataFromExcel(MultipartFile multipartFile) {
 		try {
-            List<QualificationDTO> qualifications = ExcelHelper.excelToEntities(multipartFile.getInputStream());
+            List<QualificationDTO> qualifications = ExcelHelper.excelToQualificationEntities(multipartFile.getInputStream());
 
             for(QualificationDTO it : qualifications) {
             	Qualification qualification = this.qualificationConverter.convertToEntity(it);
