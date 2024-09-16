@@ -22,8 +22,11 @@ public enum ErrorCode {
 
   STATUS_NULL(BAD_REQUEST, "Status cannot be null", HttpStatus.BAD_REQUEST),
 
-  UNCATEGORIZED_EXCEOPTION(INTERNAL_SERVER_ERROR, "Uncategorized error",
-      HttpStatus.INTERNAL_SERVER_ERROR);
+  UNCATEGORIZED_EXCEOPTION(INTERNAL_SERVER_ERROR, "Uncategorized error", HttpStatus.INTERNAL_SERVER_ERROR),
+
+  DEPARTMENT_HAS_POSITIONS(BAD_REQUEST, "Department has positions and cannot be deleted", HttpStatus.BAD_REQUEST);
+
+
 
   ErrorCode(int code, String message, HttpStatus httpStatus) {
     this.code = code;

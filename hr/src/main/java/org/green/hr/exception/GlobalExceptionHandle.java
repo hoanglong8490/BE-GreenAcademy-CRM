@@ -30,4 +30,6 @@ public class GlobalExceptionHandle {
     coreResponse.setMessage(errorCode.getMessage());
     return ResponseEntity.status(errorCode.getHttpStatus()).body(coreResponse);
   }
+
+
 }

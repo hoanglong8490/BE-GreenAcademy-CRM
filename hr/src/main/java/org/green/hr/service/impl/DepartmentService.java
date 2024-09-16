@@ -1,5 +1,6 @@
 package org.green.hr.service.impl;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +11,7 @@ import org.green.hr.entity.Department;
 import org.green.hr.exception.DepartmentException;
 import org.green.hr.exception.ErrorCode;
 import org.green.hr.repository.DepartmentRepository;
+import org.green.hr.repository.PositionRepository;
 import org.green.hr.service.IDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,9 @@ public class DepartmentService implements IDepartmentService {
 
   @Autowired
   DepartmentRepository departmentRepository;
+
+  @Autowired
+  PositionRepository positionRepository;
 
 
   @Override
@@ -47,6 +52,9 @@ public class DepartmentService implements IDepartmentService {
   public DepartmentDTO deleteDepartment(long departmentId) {
     Department department = departmentRepository.findById(departmentId)
         .orElseThrow(() -> new DepartmentException(ErrorCode.DEPARTMENT_NOT_FOUND));
+    if (!department.getPositions().isEmpty()) {
+      throw new DepartmentException(ErrorCode.DEPARTMENT_HAS_POSITIONS);
+    }
     departmentRepository.delete(department);
     return DepartmentConverter.convertToDTO(department);
   }
@@ -54,6 +62,7 @@ public class DepartmentService implements IDepartmentService {
   @Override
   public List<DepartmentDTO> getAllDepartment() {
     List<Department> departmentList = departmentRepository.findAll();
+    departmentList.sort(Comparator.comparingLong(Department::getId).reversed());
     return departmentList.stream().map(DepartmentConverter::convertToDTO)
         .collect(Collectors.toList());
   }
