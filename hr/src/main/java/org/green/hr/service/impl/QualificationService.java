@@ -9,13 +9,17 @@ import org.green.hr.model.response.QualificationResponse;
 import org.green.hr.repository.EmployeeRepository;
 import org.green.hr.repository.QualificationRepository;
 import org.green.hr.service.IQualificationService;
+import org.green.hr.util.ExcelHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class QualificationService implements IQualificationService {
@@ -33,6 +37,7 @@ public class QualificationService implements IQualificationService {
     @Override
     public QualificationDTO handldeSaveQualification(QualificationDTO qualificationDTO) {
         Qualification qualification = this.qualificationConverter.convertToEntity(qualificationDTO);
+        qualification.setCreateAt(new Date());
         this.qualificationRepository.save(qualification);
         return qualificationDTO;
     }
@@ -43,9 +48,7 @@ public class QualificationService implements IQualificationService {
 
         Page<Qualification> qualifications = this.qualificationRepository.findAll(pageable);
 
-        return qualifications.map((qualification) -> {
-            return this.qualificationConverter.convertToResponse(qualification);
-        });
+        return qualifications.map((qualification) -> this.qualificationConverter.convertToResponse(qualification));
     }
 
     @Override
@@ -61,8 +64,10 @@ public class QualificationService implements IQualificationService {
 
         if (qualification != null) {
             qualification.setQualificationName(qualificationDTO.getQualificationName());
-            qualification.setEmployee(this.employeeRepository.findById(qualificationDTO.getEmployeeId()).orElse(null));
-            if(qualificationDTO.getImagePath() != null || !qualificationDTO.getImagePath().isEmpty()) qualification.setImage(qualificationDTO.getImagePath());
+            qualification.setEmployee(this.employeeRepository.findByEmployeeName(qualificationDTO.getEmployeeName()));
+            if(qualificationDTO.getImagePath() != null){
+                if(!qualificationDTO.getImagePath().isEmpty()) qualification.setImage(qualificationDTO.getImagePath());
+            }
             qualification.setStatus(qualificationDTO.getStatus());
             qualification.setExpiryDate(qualificationDTO.getExpiryDate());
             qualification.setUpdateAt(new Date());
@@ -88,4 +93,27 @@ public class QualificationService implements IQualificationService {
         assert qualification != null;
         return this.qualificationConverter.convertToResponse(this.qualificationRepository.saveAndFlush(qualification));
     }
+
+    @Override
+    public Page<QualificationResponse> filterQualification(int pageNo, int pageSize, QualificationSearch qualificationSearch) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Qualification> qualifications = this.qualificationRepository.findByStatusAndKeyword(qualificationSearch.getStatus(), qualificationSearch.getKeyword(), pageable);
+        return qualifications.map((qualification) -> this.qualificationConverter.convertToResponse(qualification));
+    }
+
+    @Transactional
+	@Override
+	public void importDataFromExcel(MultipartFile multipartFile) {
+		try {
+            List<QualificationDTO> qualifications = ExcelHelper.excelToQualificationEntities(multipartFile.getInputStream());
+
+            for(QualificationDTO it : qualifications) {
+            	Qualification qualification = this.qualificationConverter.convertToEntity(it);
+            	this.qualificationRepository.save(qualification);
+            }
+            
+        } catch (IOException e) {
+            throw new RuntimeException("fail to store data: " + e.getMessage());
+        }
+	}
 }

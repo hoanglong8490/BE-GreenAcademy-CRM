@@ -4,6 +4,7 @@ import org.green.hr.dto.QualificationDTO;
 import org.green.hr.model.request.QualificationSearch;
 import org.green.hr.model.response.QualificationResponse;
 import org.springframework.data.domain.Page;
+import org.springframework.web.multipart.MultipartFile;
 
 
 public interface IQualificationService {
@@ -19,4 +20,8 @@ public interface IQualificationService {
     QualificationResponse searchQualifications(int pageNo, int pageSize, QualificationSearch qualificationSearch);
 
     QualificationResponse deleteQualification(Long id);
+
+    Page<QualificationResponse> filterQualification(int pageNo, int pageSize, QualificationSearch qualificationSearch);
+    
+    void importDataFromExcel(MultipartFile multipartFile);
 }

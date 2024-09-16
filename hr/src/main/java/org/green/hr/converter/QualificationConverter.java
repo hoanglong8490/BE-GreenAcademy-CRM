@@ -4,20 +4,14 @@ import org.green.hr.dto.QualificationDTO;
 import org.green.hr.entity.Qualification;
 import org.green.hr.model.response.QualificationResponse;
 import org.green.hr.repository.EmployeeRepository;
-import org.green.hr.util.UploadFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.Date;
 
 @Component
 public class QualificationConverter {
 
     @Autowired
     private EmployeeRepository employeeRepository;
-
-    @Autowired
-    private UploadFile uploadFile;
 
     public Qualification convertToEntity(QualificationDTO qualificationDTO) {
         Qualification qualification = new Qualification();
@@ -27,8 +21,10 @@ public class QualificationConverter {
         qualification.setImage(qualificationDTO.getImagePath());
         qualification.setStatus(qualificationDTO.getStatus());
         qualification.setExpiryDate(qualificationDTO.getExpiryDate());
-        qualification.setCreateAt(new Date());
-        qualification.setEmployee(this.employeeRepository.findById(qualificationDTO.getEmployeeId()).get());
+        if(qualificationDTO.getEmployeeId() != null) qualification.setEmployee(this.employeeRepository.findById(qualificationDTO.getEmployeeId()).get());
+        else if(qualificationDTO.getEmployeeName() != null) {
+        	qualification.setEmployee(this.employeeRepository.findByEmployeeName(qualificationDTO.getEmployeeName()));
+        }
 
         return qualification;
     }

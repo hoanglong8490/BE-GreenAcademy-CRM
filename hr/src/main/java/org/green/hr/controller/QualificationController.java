@@ -7,6 +7,7 @@ import org.green.hr.model.request.QualificationSearch;
 import org.green.hr.service.impl.QualificationService;
 import org.green.hr.util.UploadFile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,8 +39,45 @@ public class QualificationController {
     @GetMapping("/search")
     public ResponseEntity<CoreResponse> searchQualifications(@RequestParam(name = "pageNo", defaultValue = "1", required = false) int pageNo,
                                                              @RequestParam(name = "pageSize", defaultValue = "10", required = false) int pageSize,
-                                                             @RequestBody(required = false) QualificationSearch qualificationSearch) {
-        return null;
+                                                             @RequestParam(name = "status", required = false, defaultValue = "") Short status,
+                                                             @RequestParam(name = "keyword", required = false, defaultValue = "") String keyword) {
+
+        QualificationSearch qualificationSearch = new QualificationSearch(status, keyword);
+
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Filter success")
+                .setData(this.qualificationService.filterQualification(pageNo - 1, pageSize, qualificationSearch));
+        return ResponseEntity.ok().body(coreResponse);
+    }
+    
+    @PostMapping("/upload/excel")
+    public ResponseEntity<CoreResponse> uploadFile(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+        	
+        	CoreResponse coreResponse = new CoreResponse()
+        			.setCode(Constant.NO_CONTENT)
+        			.setMessage(Constant.NO_CONTENT_MESSAGE);
+        	
+            return ResponseEntity.status(Constant.NO_CONTENT).body(coreResponse);
+        }
+
+        try {
+            this.qualificationService.importDataFromExcel(file);
+            
+            CoreResponse coreResponse = new CoreResponse()
+        			.setCode(Constant.SUCCESS)
+        			.setMessage(Constant.SUCCESS_MESSAGE);
+        	
+            return ResponseEntity.status(Constant.NO_CONTENT).body(coreResponse);
+        } catch (Exception e) {
+        	
+        	CoreResponse coreResponse = new CoreResponse()
+        			.setCode(HttpStatus.EXPECTATION_FAILED.value())
+        			.setMessage("Failed to upload and process file: " + e.getMessage());
+        	
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(coreResponse);
+        }
     }
 
     @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
