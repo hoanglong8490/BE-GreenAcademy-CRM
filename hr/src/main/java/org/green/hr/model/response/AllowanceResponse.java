@@ -1,10 +1,12 @@
 package org.green.hr.model.response;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
+@Builder
 public class AllowanceResponse {
 
     private Long id;
@@ -14,5 +16,6 @@ public class AllowanceResponse {
     private Date createAt;
     private Date updateAt;
     private Long positionId;
+    private String positionName;
 
 }
