@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandle {
 
-  @ExceptionHandler(value = DepartmentException.class)
-  ResponseEntity<CoreResponse> handleDepartmentException(DepartmentException exception) {
+  @ExceptionHandler(value = AppException.class)
+  ResponseEntity<CoreResponse> handleDepartmentException(AppException exception) {
     ErrorCode errorCode = exception.getErrorCode();
     CoreResponse coreResponse = new CoreResponse();
     coreResponse.setCode(errorCode.getCode());

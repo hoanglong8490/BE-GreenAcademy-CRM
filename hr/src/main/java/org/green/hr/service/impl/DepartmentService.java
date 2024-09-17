@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import org.green.hr.converter.DepartmentConverter;
 import org.green.hr.dto.DepartmentDTO;
 import org.green.hr.entity.Department;
-import org.green.hr.exception.DepartmentException;
+import org.green.hr.exception.AppException;
 import org.green.hr.exception.ErrorCode;
 import org.green.hr.repository.DepartmentRepository;
 import org.green.hr.repository.PositionRepository;
@@ -30,7 +30,7 @@ public class DepartmentService implements IDepartmentService {
   public DepartmentDTO addDepartment(DepartmentDTO departmentDTO) {
     if (departmentRepository.findByDepartmentName(departmentDTO.getDepartmentName())
         != null) {
-      throw new DepartmentException(ErrorCode.DEPARTMENT_EXIST);
+      throw new AppException(ErrorCode.DEPARTMENT_EXIST);
     }
     Department department = DepartmentConverter.convertToEntity(departmentDTO);
     Department saveDepartment = departmentRepository.save(department);
@@ -40,7 +40,7 @@ public class DepartmentService implements IDepartmentService {
   @Override
   public DepartmentDTO updateDepartment(long departmentId, DepartmentDTO departmentDTO) {
     Department department = departmentRepository.findById(departmentId)
-        .orElseThrow(() -> new DepartmentException(ErrorCode.DEPARTMENT_NOT_FOUND));
+        .orElseThrow(() -> new AppException(ErrorCode.DEPARTMENT_NOT_FOUND));
     department.setDescription(departmentDTO.getDescription());
     department.setStatus(departmentDTO.getStatus());
     department.setUpdateAt(new Date());
@@ -51,9 +51,9 @@ public class DepartmentService implements IDepartmentService {
   @Override
   public DepartmentDTO deleteDepartment(long departmentId) {
     Department department = departmentRepository.findById(departmentId)
-        .orElseThrow(() -> new DepartmentException(ErrorCode.DEPARTMENT_NOT_FOUND));
+        .orElseThrow(() -> new AppException(ErrorCode.DEPARTMENT_NOT_FOUND));
     if (!department.getPositions().isEmpty()) {
-      throw new DepartmentException(ErrorCode.DEPARTMENT_HAS_POSITIONS);
+      throw new AppException(ErrorCode.DEPARTMENT_HAS_POSITIONS);
     }
     departmentRepository.delete(department);
     return DepartmentConverter.convertToDTO(department);
@@ -73,7 +73,7 @@ public class DepartmentService implements IDepartmentService {
     if (department.isPresent()) {
       return List.of(DepartmentConverter.convertToDTO(department.get()));
     } else {
-      throw new DepartmentException(ErrorCode.DEPARTMENT_NOT_FOUND);
+      throw new AppException(ErrorCode.DEPARTMENT_NOT_FOUND);
     }
   }
 }
