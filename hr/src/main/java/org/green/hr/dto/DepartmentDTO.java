@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,4 +32,5 @@ public class DepartmentDTO {
   @JsonFormat(shape = Shape.STRING,pattern = "dd-MM-yyyy")
   Date updateAt;
 
+  List<PositionDTO> positions;
 }
