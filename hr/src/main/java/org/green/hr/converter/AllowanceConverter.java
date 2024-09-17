@@ -14,20 +14,19 @@ public class AllowanceConverter {
 	private PositionRepository positionRepository;
 
 	public Allowance convertToEntity(AllowanceDTO allowanceDTO) {
-		
-		Allowance allowance = Allowance.builder()
+
+        return Allowance.builder()
 				.id(allowanceDTO.getId())
 				.allowanceCategory(allowanceDTO.getAllowanceCategory())
 				.allowanceSalary(allowanceDTO.getAllowanceSalary())
 				.status(allowanceDTO.getStatus())
 				.position(positionRepository.findById(allowanceDTO.getPositionId()).orElse(null))
 				.build();
-		
-		return allowance;
 	}
 	
 	public AllowanceResponse convertToResponse(Allowance allowance) {
-		AllowanceResponse allowanceResponse = AllowanceResponse.builder()
+
+        return AllowanceResponse.builder()
 				.id(allowance.getId())
 				.allowanceCategory(allowance.getAllowanceCategory())
 				.allowanceSalary(allowance.getAllowanceSalary())
@@ -37,7 +36,5 @@ public class AllowanceConverter {
 				.createAt(allowance.getCreateAt())
 				.updateAt(allowance.getUpdateAt())
 				.build();
-		
-		return allowanceResponse;
 	}
 }

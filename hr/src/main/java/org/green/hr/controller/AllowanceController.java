@@ -7,6 +7,7 @@ import org.green.hr.model.request.AllowanceSearch;
 import org.green.hr.model.response.AllowanceResponse;
 import org.green.hr.service.IAllowanceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/hr/allowances")
@@ -60,20 +62,49 @@ public class AllowanceController {
 		return ResponseEntity.ok().body(coreResponse);
 	}
 
-	@PutMapping("/update")
-	public ResponseEntity<CoreResponse> updateAllwance(@RequestBody(required = false) AllowanceDTO allowanceDTO) {
-		AllowanceResponse allowanceResponse = this.iAllowanceService.handleUpdateAllowance(allowanceDTO);
+	@PutMapping("/update/{id}")
+	public ResponseEntity<CoreResponse> updateAllwance(@PathVariable("id") Long id, @RequestBody(required = false) AllowanceDTO allowanceDTO) {
+		AllowanceResponse allowanceResponse = this.iAllowanceService.handleUpdateAllowance(allowanceDTO, id);
 
 		CoreResponse coreResponse = new CoreResponse().setCode(Constant.SUCCESS).setMessage("Update successfuly")
 				.setData(allowanceResponse);
 		return ResponseEntity.ok().body(coreResponse);
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@PutMapping("/delete/{id}")
 	public ResponseEntity<CoreResponse> deleteAllowance(@PathVariable("id") Long id, @RequestBody(required = false) AllowanceDTO allowanceDTO){
 		AllowanceResponse allowanceResponse = this.iAllowanceService.handleDeleteAllowance(allowanceDTO);
 		CoreResponse coreResponse = new CoreResponse().setCode(Constant.SUCCESS).setMessage("Delete successfuly")
 				.setData(allowanceResponse);
 		return ResponseEntity.ok().body(coreResponse);
+	}
+
+	@PostMapping("/upload/excel")
+	public ResponseEntity<CoreResponse> uploadFile(@RequestParam("file") MultipartFile file) {
+		if (file.isEmpty()) {
+
+			CoreResponse coreResponse = new CoreResponse()
+					.setCode(Constant.NO_CONTENT)
+					.setMessage(Constant.NO_CONTENT_MESSAGE);
+
+			return ResponseEntity.status(Constant.NO_CONTENT).body(coreResponse);
+		}
+
+		try {
+			this.iAllowanceService.importDataFromExcel(file);
+
+			CoreResponse coreResponse = new CoreResponse()
+					.setCode(Constant.SUCCESS)
+					.setMessage(Constant.SUCCESS_MESSAGE);
+
+			return ResponseEntity.status(Constant.NO_CONTENT).body(coreResponse);
+		} catch (Exception e) {
+
+			CoreResponse coreResponse = new CoreResponse()
+					.setCode(HttpStatus.EXPECTATION_FAILED.value())
+					.setMessage("Failed to upload and process file: " + e.getMessage());
+
+			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(coreResponse);
+		}
 	}
 }

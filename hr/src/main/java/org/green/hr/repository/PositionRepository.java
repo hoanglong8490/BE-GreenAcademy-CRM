@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PositionRepository extends JpaRepository<Position, Long> {
-	
+
 	@Query("SELECT p FROM Position p WHERE "
             + "(:status IS NULL OR p.status = :status) AND "
             + "(:keyword IS NULL OR LOWER(p.positionName) LIKE LOWER(CONCAT('%', :keyword, '%')))")
@@ -18,4 +18,6 @@ public interface PositionRepository extends JpaRepository<Position, Long> {
             @Param("status") Short status,
             @Param("keyword") String keyword,
             Pageable pageable);
+
+    Position findByPositionName(String positionName);
 }
