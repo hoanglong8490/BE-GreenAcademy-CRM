@@ -1,197 +1,133 @@
 package org.green.hr.controller;
 
-
 import org.green.core.constant.Constant;
 import org.green.core.model.response.CoreResponse;
 import org.green.hr.dto.ContractDTO;
-import org.green.hr.entity.Contract;
-import org.green.hr.exception.ResourceNotFoundException;
+import org.green.hr.model.request.ContractSearch;
+import org.green.hr.model.response.ContractResponse;
 import org.green.hr.service.IContractService;
+import org.green.hr.util.UploadFile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/hr/contracts")
+@CrossOrigin
 public class ContractController {
+
     @Autowired
     private IContractService contractService;
 
+    @Autowired
+    private UploadFile uploadFile;
+
     @GetMapping
-    public ResponseEntity<CoreResponse> getAllContracts(
-            @RequestParam(name = "pageNo", defaultValue = "1", required = false) int pageNo,
-            @RequestParam(name = "pageSize", defaultValue = "10", required = false) int pageSize) {
-
-        if (pageNo < 1) {
-            pageNo = 1;
-        }
-
-        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        Page<ContractDTO> result;
-        try {
-            result = contractService.getAllContracts(pageable);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new CoreResponse()
-                            .setCode(Constant.INTERNAL_SERVER_ERROR)
-                            .setMessage("Có lỗi xảy ra khi lấy danh sách hợp đồng")
-                            .setData(null));
-        }
-
-        Map<String, Object> responseData = Map.of(
-                "contracts", result.getContent(),
-                "totalElements", result.getTotalElements(),
-                "totalPages", result.getTotalPages(),
-                "currentPage", result.getNumber() + 1,
-                "pageSize", result.getSize()
-        );
+    public ResponseEntity<CoreResponse> getAllContracts(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
+                                                        @RequestParam(name = "size", defaultValue = "10", required = false) int pageSize) {
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage(Constant.SUCCESS_MESSAGE)
-                .setData(responseData);
+                .setData(this.contractService.getAllContracts(pageNo - 1, pageSize));
 
-        return ResponseEntity.ok(coreResponse);
+        return ResponseEntity.ok().body(coreResponse);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<CoreResponse> getContractById(@PathVariable Long id) {
-        try {
-            Optional<ContractDTO> contract = contractService.getContractById(id);
-            if (contract.isPresent()) {
-                CoreResponse response = new CoreResponse()
-                        .setCode(Constant.SUCCESS)
-                        .setMessage(Constant.SUCCESS_MESSAGE)
-                        .setData(contract.get());
-                return ResponseEntity.ok(response);
-            } else {
-                CoreResponse response = new CoreResponse()
-                        .setCode(Constant.NOT_FOUND)
-                        .setMessage("Không tìm thấy hợp đồng với ID: " + id)
-                        .setData(null);
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new CoreResponse()
-                            .setCode(Constant.INTERNAL_SERVER_ERROR)
-                            .setMessage("Có lỗi xảy ra khi lấy hợp đồng")
-                            .setData(null));
-        }
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Contract found")
+                .setData(this.contractService.getContractById(id));
+
+        return ResponseEntity.ok().body(coreResponse);
     }
 
-
-    @PostMapping("/")
-    public ResponseEntity<CoreResponse> createContract(@RequestBody ContractDTO contractDTO) {
-        try {
-            ContractDTO createdContract = contractService.createContract(contractDTO);
-            CoreResponse response = new CoreResponse()
-                    .setCode(Constant.SUCCESS)
-                    .setMessage(Constant.SUCCESS_MESSAGE)
-                    .setData(createdContract);
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new CoreResponse()
-                            .setCode(Constant.INTERNAL_SERVER_ERROR)
-                            .setMessage("Có lỗi xảy ra khi tạo hợp đồng")
-                            .setData(null));
-        }
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<CoreResponse> updateContract(@PathVariable Long id, @RequestBody ContractDTO contractDTO) {
-        contractDTO.setId(id);
-        try {
-            ContractDTO updatedContract = contractService.saveContract(contractDTO);
-            CoreResponse response = new CoreResponse()
-                    .setCode(Constant.SUCCESS)
-                    .setMessage(Constant.SUCCESS_MESSAGE)
-                    .setData(updatedContract);
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new CoreResponse()
-                            .setCode(Constant.INTERNAL_SERVER_ERROR)
-                            .setMessage("Có lỗi xảy ra khi cập nhật hợp đồng")
-                            .setData(null));
-        }
-    }
-
-    @PutMapping("/{id}/status")
-    public ResponseEntity<CoreResponse> updateContractStatus(
-            @PathVariable Long id,
-            @RequestBody Map<String, Object> payload) {
-        Boolean status = (Boolean) payload.get("status");
-        if (status == null) {
-            return ResponseEntity.badRequest().body(new CoreResponse()
-                    .setCode(Constant.BAD_REQUEST)
-                    .setMessage("Trạng thái không hợp lệ")
-                    .setData(null));
-        }
-
-        try {
-            contractService.updateContractStatus(id, status);
-            CoreResponse response = new CoreResponse()
-                    .setCode(Constant.SUCCESS)
-                    .setMessage("Cập nhật trạng thái thành công")
-                    .setData(null);
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new CoreResponse()
-                            .setCode(Constant.INTERNAL_SERVER_ERROR)
-                            .setMessage("Có lỗi xảy ra khi cập nhật trạng thái hợp đồng")
-                            .setData(null));
-        }
-    }
-
-    @GetMapping("/search")
-    public ResponseEntity<CoreResponse> searchContracts(
-            @RequestParam(name = "searchTerm", required = false) String searchTerm,
-            @RequestParam(name = "contractCategory", required = false) String contractCategory,
-            @RequestParam(name = "minSalary", required = false) Double minSalary,
-            @RequestParam(name = "maxSalary", required = false) Double maxSalary,
-            @RequestParam(name = "pageNo", defaultValue = "1", required = false) int pageNo,
-            @RequestParam(name = "pageSize", defaultValue = "10", required = false) int pageSize) {
-
-        if (pageNo < 1) {
-            pageNo = 1;
-        }
-
-        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        Page<ContractDTO> result;
-        try {
-            result = contractService.searchContracts(searchTerm, contractCategory, minSalary, maxSalary, pageable);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new CoreResponse()
-                            .setCode(Constant.INTERNAL_SERVER_ERROR)
-                            .setMessage("Có lỗi xảy ra khi tìm kiếm hợp đồng")
-                            .setData(null));
-        }
-
-        Map<String, Object> responseData = Map.of(
-                "contracts", result.getContent(),
-                "totalElements", result.getTotalElements(),
-                "totalPages", result.getTotalPages(),
-                "currentPage", result.getNumber() + 1,
-                "pageSize", result.getSize()
-        );
+    @PostMapping("/search")
+    public ResponseEntity<CoreResponse> searchContracts(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
+                                                        @RequestParam(name = "size", defaultValue = "10", required = false) int pageSize,
+                                                        @RequestBody ContractSearch contractSearch) {
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
-                .setMessage("Tìm kiếm hợp đồng thành công")
-                .setData(responseData);
+                .setMessage("Search success")
+                .setData(this.contractService.searchContracts(pageNo - 1, pageSize, contractSearch));
 
-        return ResponseEntity.ok(coreResponse);
+        return ResponseEntity.ok().body(coreResponse);
+    }
+
+    @PostMapping("/filter")
+    public ResponseEntity<CoreResponse> filterContracts(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
+                                                        @RequestParam(name = "size", defaultValue = "10", required = false) int pageSize,
+                                                        @RequestBody ContractSearch contractSearch) {
+
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Filter success")
+                .setData(this.contractService.filterContracts(pageNo - 1, pageSize, contractSearch));
+
+        return ResponseEntity.ok().body(coreResponse);
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<CoreResponse> createContract(@RequestBody ContractDTO contractDTO) {
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Contract created")
+                .setData(this.contractService.handleSaveContract(contractDTO));
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(coreResponse);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CoreResponse> updateContract(@PathVariable Long id,
+                                                       @RequestBody ContractDTO contractDTO) {
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Contract updated")
+                .setData(this.contractService.updateContract(contractDTO, id));
+
+        return ResponseEntity.ok().body(coreResponse);
+    }
+
+    @PutMapping("/delete/{id}")
+    public ResponseEntity<CoreResponse> deleteContract(@PathVariable Long id) {
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage("Contract deleted")
+                .setData(this.contractService.deleteContract(id));
+
+        return ResponseEntity.ok().body(coreResponse);
+    }
+
+    @PostMapping("/import")
+    public ResponseEntity<CoreResponse> importDataFromExcel(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            CoreResponse coreResponse = new CoreResponse()
+                    .setCode(Constant.NO_CONTENT)
+                    .setMessage(Constant.NO_CONTENT_MESSAGE);
+
+            return ResponseEntity.status(Constant.NO_CONTENT).body(coreResponse);
+        }
+
+        try {
+            this.contractService.importDataFromExcel(file);
+
+            CoreResponse coreResponse = new CoreResponse()
+                    .setCode(Constant.SUCCESS)
+                    .setMessage(Constant.SUCCESS_MESSAGE);
+
+            return ResponseEntity.ok().body(coreResponse);
+        } catch (Exception e) {
+            CoreResponse coreResponse = new CoreResponse()
+                    .setCode(HttpStatus.EXPECTATION_FAILED.value())
+                    .setMessage("Failed to upload and process file: " + e.getMessage());
+
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(coreResponse);
+        }
     }
 }

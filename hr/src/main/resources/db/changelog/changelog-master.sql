@@ -247,3 +247,5 @@ ALTER TABLE contract
 ALTER TABLE qualification
     ADD COLUMN image VARCHAR(255);
 
+
+
