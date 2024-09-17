@@ -10,16 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContractRepository extends JpaRepository<Contract, Long> {
-    @Query("SELECT c FROM Contract c JOIN c.employee e WHERE " +
-            "(LOWER(e.employeeCode) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
-            "LOWER(c.contractCategory) LIKE LOWER(CONCAT('%', :searchTerm, '%'))) AND " +
-            "(c.salary BETWEEN :minSalary AND :maxSalary) AND " +
-            "(LOWER(c.contractCategory) LIKE LOWER(CONCAT('%', :contractCategory, '%')))")
-    Page<Contract> findBySearchTermAndTypeAndSalaryBetween(
-            @Param("searchTerm") String searchTerm,
-            @Param("contractCategory") String contractCategory,
-            @Param("minSalary") Double minSalary,
-            @Param("maxSalary") Double maxSalary,
-            Pageable pageable);
+
+    @Query("SELECT c FROM Contract c WHERE LOWER(c.contractCode) LIKE LOWER(:searchTerm) AND c.contractCategory LIKE :contractCategory AND c.salary BETWEEN :minSalary AND :maxSalary")
+    Page<Contract> findBySearchTermAndTypeAndSalaryBetween(String searchTerm, String contractCategory, Double minSalary, Double maxSalary, Pageable pageable);
 
 }
