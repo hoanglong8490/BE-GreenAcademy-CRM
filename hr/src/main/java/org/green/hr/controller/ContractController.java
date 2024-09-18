@@ -75,11 +75,8 @@ public class ContractController {
 
     @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<CoreResponse> createContract(
-            @RequestPart("contractDTO") ContractDTO contractDTO,
-            @RequestPart("contractContent") MultipartFile contractContent) {
-
-        // Xử lý logic lưu hợp đồng và file
-        contractService.handleSaveContract(contractDTO, contractContent);
+            @RequestPart(value = "contractDTO", required = false) ContractDTO contractDTO,
+            @RequestPart(value = "contentContract", required = false) MultipartFile contractContent) {
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)

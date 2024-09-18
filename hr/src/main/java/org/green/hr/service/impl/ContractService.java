@@ -1,5 +1,6 @@
 package org.green.hr.service.impl;
 
+import jakarta.transaction.Transactional;
 import org.green.hr.converter.ContractConverter;
 import org.green.hr.dto.ContractDTO;
 import org.green.hr.entity.Contract;
@@ -9,6 +10,7 @@ import org.green.hr.model.response.ContractResponse;
 import org.green.hr.repository.ContractRepository;
 import org.green.hr.service.IContractService;
 import org.green.hr.util.ExcelHelper;
+import org.green.hr.util.UploadFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,6 +29,10 @@ public class ContractService implements IContractService {
     @Autowired
     private ContractConverter contractConverter;
 
+    @Autowired
+    private UploadFile uploadFile;
+
+    @Transactional
     @Override
     public ContractDTO handleSaveContract(ContractDTO contractDTO, MultipartFile contractContent) {
         // Chuyển đổi DTO sang entity
@@ -34,17 +40,13 @@ public class ContractService implements IContractService {
 
         // Xử lý file contractContent (nếu cần lưu hoặc thao tác với file)
         if (contractContent != null && !contractContent.isEmpty()) {
-            try {
-                // Lấy nội dung file dưới dạng chuỗi
-                String content = new String(contractContent.getBytes());
+            // Lấy nội dung file dưới dạng chuỗi
+            String content = this.uploadFile.uploadFileContract(contractContent);
 
-                // Lưu nội dung file vào trường contentContract của entity Contract
-                contract.setContentContract(content);
-            } catch (IOException e) {
-                // Xử lý lỗi nếu có
-                throw new RuntimeException("Có lỗi xảy ra khi xử lý file hợp đồng", e);
-            }
+            // Lưu nội dung file vào trường contentContract của entity Contract
+            contract.setContentContract(content);
         }
+        else contract.setContentContract(null);
 
         // Lưu entity vào database
         contract = contractRepository.save(contract);

@@ -16,10 +16,9 @@ public class ContractConverter {
     public Contract convertToEntity(ContractDTO contractDTO) {
         Contract contract = new Contract();
 
-        contract.setId(contractDTO.getId());
+        if(contractDTO.getId() != null) contract.setId(contractDTO.getId());
         contract.setContractCode(contractDTO.getContractCode());
         contract.setContractCategory(contractDTO.getContractCategory());
-        contract.setContentContract(contractDTO.getContentContract());
         contract.setSalary(contractDTO.getSalary());
         contract.setDateStart(contractDTO.getDateStart());
         contract.setDateEnd(contractDTO.getDateEnd());
@@ -60,7 +59,7 @@ public class ContractConverter {
         contractDTO.setId(contract.getId());
         contractDTO.setContractCode(contract.getContractCode());
         contractDTO.setContractCategory(contract.getContractCategory());
-        contractDTO.setContentContract(contract.getContentContract());
+        contractDTO.setContentContractPath(contract.getContentContract());
         contractDTO.setSalary(contract.getSalary());
         contractDTO.setDateStart(contract.getDateStart());
         contractDTO.setDateEnd(contract.getDateEnd());
@@ -78,7 +77,7 @@ public class ContractConverter {
     public Contract updateEntityFromDTO(ContractDTO contractDTO, Contract existingContract) {
         existingContract.setContractCode(contractDTO.getContractCode());
         existingContract.setContractCategory(contractDTO.getContractCategory());
-        existingContract.setContentContract(contractDTO.getContentContract());
+        existingContract.setContentContract(contractDTO.getContentContractPath());
         existingContract.setSalary(contractDTO.getSalary());
         existingContract.setDateStart(contractDTO.getDateStart());
         existingContract.setDateEnd(contractDTO.getDateEnd());
