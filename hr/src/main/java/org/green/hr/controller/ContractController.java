@@ -73,12 +73,18 @@ public class ContractController {
         return ResponseEntity.ok().body(coreResponse);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<CoreResponse> createContract(@RequestBody ContractDTO contractDTO) {
+    @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<CoreResponse> createContract(
+            @RequestPart("contractDTO") ContractDTO contractDTO,
+            @RequestPart("contractContent") MultipartFile contractContent) {
+
+        // Xử lý logic lưu hợp đồng và file
+        contractService.handleSaveContract(contractDTO, contractContent);
+
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage("Contract created")
-                .setData(this.contractService.handleSaveContract(contractDTO));
+                .setData(this.contractService.handleSaveContract(contractDTO, contractContent));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(coreResponse);
     }

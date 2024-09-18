@@ -28,9 +28,28 @@ public class ContractService implements IContractService {
     private ContractConverter contractConverter;
 
     @Override
-    public ContractDTO handleSaveContract(ContractDTO contractDTO) {
+    public ContractDTO handleSaveContract(ContractDTO contractDTO, MultipartFile contractContent) {
+        // Chuyển đổi DTO sang entity
         Contract contract = contractConverter.convertToEntity(contractDTO);
+
+        // Xử lý file contractContent (nếu cần lưu hoặc thao tác với file)
+        if (contractContent != null && !contractContent.isEmpty()) {
+            try {
+                // Lấy nội dung file dưới dạng chuỗi
+                String content = new String(contractContent.getBytes());
+
+                // Lưu nội dung file vào trường contentContract của entity Contract
+                contract.setContentContract(content);
+            } catch (IOException e) {
+                // Xử lý lỗi nếu có
+                throw new RuntimeException("Có lỗi xảy ra khi xử lý file hợp đồng", e);
+            }
+        }
+
+        // Lưu entity vào database
         contract = contractRepository.save(contract);
+
+        // Chuyển đổi entity sang DTO và trả về kết quả
         return contractConverter.convertToDTO(contract);
     }
 

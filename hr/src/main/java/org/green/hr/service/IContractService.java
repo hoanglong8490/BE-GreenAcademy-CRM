@@ -14,7 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface IContractService {
-    ContractDTO handleSaveContract(ContractDTO contractDTO);
+    ContractDTO handleSaveContract(ContractDTO contractDTO, MultipartFile contractContent);
 
     Page<ContractResponse> getAllContracts(int pageNo, int pageSize);
 
