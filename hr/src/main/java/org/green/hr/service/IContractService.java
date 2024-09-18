@@ -20,7 +20,7 @@ public interface IContractService {
 
     ContractDTO getContractById(Long id);
 
-    ContractResponse updateContract(ContractDTO contractDTO, Long id);
+    ContractResponse updateContract(ContractDTO contractDTO, MultipartFile contractContent, Long id);
 
     ContractResponse searchContracts(int pageNo, int pageSize, ContractSearch contractSearch);
 

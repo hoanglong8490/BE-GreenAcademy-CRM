@@ -60,7 +60,7 @@ public class ContractController {
         return ResponseEntity.ok().body(coreResponse);
     }
 
-    @PostMapping("/filter")
+    @GetMapping("/filter")
     public ResponseEntity<CoreResponse> filterContracts(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
                                                         @RequestParam(name = "size", defaultValue = "10", required = false) int pageSize,
                                                         @RequestBody ContractSearch contractSearch) {
@@ -83,19 +83,38 @@ public class ContractController {
                 .setMessage("Contract created")
                 .setData(this.contractService.handleSaveContract(contractDTO, contractContent));
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(coreResponse);
+            return ResponseEntity.status(HttpStatus.CREATED).body(coreResponse);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<CoreResponse> updateContract(@PathVariable Long id,
-                                                       @RequestBody ContractDTO contractDTO) {
-        CoreResponse coreResponse = new CoreResponse()
-                .setCode(Constant.SUCCESS)
-                .setMessage("Contract updated")
-                .setData(this.contractService.updateContract(contractDTO, id));
+    @PutMapping(value = "/{id}" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<CoreResponse> updateContract(
+            @PathVariable(value = "id") Long id,
+            @RequestPart(value = "contractDTO", required = true) ContractDTO contractDTO,
+            @RequestPart(value = "contentContract", required = false) MultipartFile contractContent) {
 
-        return ResponseEntity.ok().body(coreResponse);
+        if (contractDTO == null) {
+            return ResponseEntity.status(Constant.BAD_REQUEST)
+                    .body(new CoreResponse()
+                            .setCode(Constant.BAD_REQUEST)
+                            .setMessage(Constant.BAD_REQUEST_MESSAGE));
+        }
+
+        try {
+            CoreResponse coreResponse = new CoreResponse()
+                    .setCode(Constant.SUCCESS)
+                    .setMessage("Contract updated")
+                    .setData(this.contractService.updateContract(contractDTO, contractContent, id));
+
+            return ResponseEntity.ok().body(coreResponse);
+        } catch (Exception e) {
+            return ResponseEntity.status(Constant.INTERNAL_SERVER_ERROR)
+                    .body(new CoreResponse()
+                            .setCode(Constant.INTERNAL_SERVER_ERROR)
+                            .setMessage(Constant.INTERNAL_SERVER_ERROR_MESSAGE));
+        }
     }
+
+
 
     @PutMapping("/delete/{id}")
     public ResponseEntity<CoreResponse> deleteContract(@PathVariable Long id) {
