@@ -21,7 +21,7 @@ public enum ErrorCode {
 
   STATUS_NULL(BAD_REQUEST, "Status cannot be null", HttpStatus.BAD_REQUEST),
 
-  EMPLOYEE_NOT_FOUND(BAD_REQUEST,"Employee not found", HttpStatus.BAD_REQUEST),
+  EMPLOYEE_NOT_FOUND(BAD_REQUEST,"EmployeeID not found", HttpStatus.BAD_REQUEST),
   HOURS_NULL(BAD_REQUEST,"Hours is not null", HttpStatus.BAD_REQUEST),
   MULTIPLIER_NULL(BAD_REQUEST,"Multiplier is not null",HttpStatus.BAD_REQUEST),
   OVERTIME_NOT_FOUND(BAD_REQUEST,"Overtime not found", HttpStatus.BAD_REQUEST),
