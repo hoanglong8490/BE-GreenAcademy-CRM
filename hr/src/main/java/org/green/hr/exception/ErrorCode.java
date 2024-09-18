@@ -24,7 +24,9 @@ public enum ErrorCode {
   EMPLOYEE_NOT_FOUND(BAD_REQUEST,"EmployeeID not found", HttpStatus.BAD_REQUEST),
   HOURS_NULL(BAD_REQUEST,"Hours is not null", HttpStatus.BAD_REQUEST),
   MULTIPLIER_NULL(BAD_REQUEST,"Multiplier is not null",HttpStatus.BAD_REQUEST),
-  OVERTIME_NOT_FOUND(BAD_REQUEST,"Overtime not found", HttpStatus.BAD_REQUEST),
+  OVERTIME_NOT_FOUND(BAD_REQUEST,"OvertimeId not found", HttpStatus.BAD_REQUEST),
+  MONEY_NOT_NULL(BAD_REQUEST,"Money is not null", HttpStatus.BAD_REQUEST),
+  SALARY_ADVANCE_NOT_FOUND(BAD_REQUEST,"SalaryAdvanceId not found", HttpStatus.BAD_REQUEST),
   UNCATEGORIZED_EXCEOPTION(INTERNAL_SERVER_ERROR, "Uncategorized error", HttpStatus.INTERNAL_SERVER_ERROR);
 
 
