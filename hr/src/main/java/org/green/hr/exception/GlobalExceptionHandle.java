@@ -30,6 +30,15 @@ public class GlobalExceptionHandle {
     coreResponse.setMessage(errorCode.getMessage());
     return ResponseEntity.status(errorCode.getHttpStatus()).body(coreResponse);
   }
+  @ExceptionHandler(value = IllegalArgumentException.class)
+  ResponseEntity<CoreResponse> handleIllegalArgumentException(IllegalArgumentException exception) {
+    String message = exception.getMessage();
+    ErrorCode errorCode = ErrorCode.valueOf(message);
 
+    CoreResponse coreResponse = new CoreResponse();
+    coreResponse.setCode(errorCode.getCode());
+    coreResponse.setMessage(errorCode.getMessage());
+    return ResponseEntity.status(errorCode.getHttpStatus()).body(coreResponse);
+  }
 
 }

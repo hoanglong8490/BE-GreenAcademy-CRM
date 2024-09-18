@@ -9,7 +9,7 @@ public class OvertimeConverter {
   public static Overtime convertToEntity(OvertimeDTO overtimeDTO) {
     return Overtime.builder()
         .id(overtimeDTO.getOverTimeId())
-        .overtimeDate(overtimeDTO.getOvertimeDate())
+        .overtimeDate(new Date())
         .hours(overtimeDTO.getHours())
         .multiplier(overtimeDTO.getMultiplier())
         .status(overtimeDTO.getStatus())

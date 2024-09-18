@@ -28,5 +28,6 @@ public class OvertimeDTO {
   Date createAt;
   @JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
   Date updateAt;
+  @NotNull(message = "EMPLOYEE_NOT_FOUND")
   Long employeeId;
 }
