@@ -70,15 +70,24 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public ContractResponse updateContract(ContractDTO contractDTO, Long id) {
+    @Transactional
+    public ContractResponse updateContract(ContractDTO contractDTO, MultipartFile contractContent, Long id) {
+        // Find the existing contract
         Contract existingContract = contractRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Contract not found with id: " + id));
 
-        // Update contract fields
         Contract updatedContract = contractConverter.updateEntityFromDTO(contractDTO, existingContract);
+
+        if (contractContent != null && !contractContent.isEmpty()) {
+            // Upload the new file and get the content
+            String content = this.uploadFile.uploadFileContract(contractContent);
+            updatedContract.setContentContract(content);
+        }
         updatedContract = contractRepository.save(updatedContract);
+
         return contractConverter.convertToResponse(updatedContract);
     }
+
 
     @Override
     public ContractResponse searchContracts(int pageNo, int pageSize, ContractSearch contractSearch) {
