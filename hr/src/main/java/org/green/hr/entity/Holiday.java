@@ -3,7 +3,9 @@ package org.green.hr.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @lombok.Getter
 @lombok.Setter
@@ -26,5 +28,8 @@ public class Holiday {
 
     @Column(name = "update_at")
     private Date updateAt;
+
+    @OneToMany(mappedBy = "holiday", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private List<TimeTracking> timeTrackings = new ArrayList<>();
 
 }

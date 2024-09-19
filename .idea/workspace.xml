@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/TimeOffController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/TimeOffConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/RewardDisciplineDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/648c72fe-8b80-4853-b78b-1f928bd0292e/storage_v2/_src_/database/crm_green.YlXBxg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/SalaryAdvanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/SalaryAdvanceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/TimeOffDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/TimeOffDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/TimeOff.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/TimeOff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/SalaryAdvanceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/repository/SalaryAdvanceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/ISalaryAdvanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/ISalaryAdvanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/ITimeOffService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/ITimeOffService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/SalaryAdvanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/SalaryAdvanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/TimeOffService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/TimeOffService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/RewardDiscipline.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/entity/RewardDiscipline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/resources/db/changelog/changelog-master.sql" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/resources/db/changelog/changelog-master.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +46,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPENED",
+    "assignee": {
+      "type": "org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue",
+      "username": "anhcv",
+      "fullname": "Chu Văn Anh"
+    }
+  }
+}]]></component>
+  <component name="GitLabMergeRequestsSettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "first": "https://git.lsd.vn/green-academy/backend-green.git",
+    "second": "cf5718ed-13a9-4d24-a4d0-b8cb853bd787"
+  }
+}]]></component>
   <component name="GitToolBoxStore">
     <option name="recentBranches">
       <RecentBranches>
@@ -108,7 +118,7 @@
     &quot;Spring Boot.EducationApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.HrApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ReceivableApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/hoanglong/salaryAdvance&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/anhcv/contract&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -144,7 +154,21 @@
       </set>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.HrApplication">
+    <configuration name="CoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="core" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.core.CoreApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EducationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="education" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.education.EducationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="hr" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.hr.HrApplication" />
@@ -158,6 +182,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReceivableApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="receivable" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.receivable.ReceivableApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SaleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="sale" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.sale.SaleApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.CoreApplication" />
+      <item itemvalue="Spring Boot.EducationApplication" />
+      <item itemvalue="Spring Boot.ReceivableApplication" />
+      <item itemvalue="Spring Boot.SaleApplication" />
+      <item itemvalue="Spring Boot.HrApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.HrApplication" />
@@ -238,6 +283,24 @@
           </properties>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IContractService.java</url>
+          <line>20</line>
+          <properties class="org.green.hr.service.IContractService">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IContractService.java</url>
+          <line>18</line>
+          <properties class="org.green.hr.service.IContractService">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
           <line>41</line>
@@ -262,6 +325,54 @@
           <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
           <line>39</line>
           <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java</url>
+          <line>61</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

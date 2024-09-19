@@ -39,9 +39,15 @@ public class RewardDiscipline {
     @Column(name = "update_at")
     private Date updateAt;
 
+    @Column(name = "rd_images")
+    private String rdImages;
+
+    @Column(name = "rd_code")
+    private String rdCode;
+
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "salary_id", nullable = false)
-    private Salary salary;
+    @JoinColumn(name = "employee_id", nullable = false)
+    private Employee employee;
 
 }

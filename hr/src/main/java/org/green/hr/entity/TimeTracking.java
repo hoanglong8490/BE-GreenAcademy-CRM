@@ -19,10 +19,6 @@ public class TimeTracking {
     private Date timeTrackingDate;
 
     @NotNull
-    @Column(name = "salary_id", nullable = false)
-    private Long salaryId;
-
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "holiday_id", nullable = false)
     private Holiday holiday;

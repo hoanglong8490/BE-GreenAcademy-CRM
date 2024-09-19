@@ -11,7 +11,7 @@ public class ContractDTO {
     private String contractCode;
     private String employeeCode;
     private String contractCategory;
-    private String contentContract;
+    private String contentContractPath;
     private float salary;
     private Date dateStart;
     private Date dateEnd;
