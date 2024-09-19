@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/hr/employee")
+@RequestMapping("/hr/employees")
 public class EmployeeController {
 
     @Autowired
@@ -32,9 +32,26 @@ public class EmployeeController {
         return ResponseEntity.ok().body(coreResponse);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<CoreResponse> getAllEmployees() {
+        CoreResponse coreResponse = new CoreResponse()
+                .setCode(Constant.SUCCESS)
+                .setMessage(Constant.SUCCESS_MESSAGE)
+                .setData(iEmployeeService.getAllEmployees());
+
+        return ResponseEntity.ok().body(coreResponse);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<CoreResponse> getEmployeeById(@PathVariable("id") Long id) {
         EmployeeDTO employeeDTO = iEmployeeService.getEmployeeById(id);
+
+        if (employeeDTO == null) {
+            CoreResponse coreResponse = new CoreResponse()
+                    .setCode(Constant.NOT_FOUND)
+                    .setMessage(Constant.NOT_FOUND_MESSAGE);
+            return ResponseEntity.status(Constant.NOT_FOUND).body(coreResponse);
+        }
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)

@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.experimental.Accessors;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @lombok.Getter
 @lombok.Setter
@@ -32,5 +34,8 @@ public class Position {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
+
+    @OneToMany(mappedBy = "position", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private List<Allowance> allowances = new ArrayList<>();
 
 }

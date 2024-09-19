@@ -4,6 +4,8 @@ import org.green.hr.dto.EmployeeDTO;
 import org.green.hr.entity.Employee;
 import org.springframework.data.domain.Page;
 
+import java.util.List;
+
 
 public interface IEmployeeService {
 
@@ -12,4 +14,6 @@ public interface IEmployeeService {
     Page<EmployeeDTO> getEmployees(int pageNo, int pageSize);
 
     EmployeeDTO getEmployeeById(Long id);
+
+    List<EmployeeDTO> getAllEmployees();
 }

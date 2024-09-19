@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e372ff80-0a63-47e5-927e-46d9b6d39d20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/OvertimeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/OvertimeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/OvertimeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/dto/OvertimeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/GlobalExceptionHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/exception/GlobalExceptionHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/OverTimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/OverTimeService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,15 +38,38 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/hoanglong/overtime" />
+                    <option name="lastUsedInstant" value="1726554506" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/hoanglong/department" />
+                    <option name="lastUsedInstant" value="1726554505" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -72,16 +98,21 @@
     &quot;Spring Boot.EducationApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.HrApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ReceivableApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hr&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/hoanglong/overtime&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/GreenAcademy/Backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -94,11 +125,6 @@
     ]
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="org.green.education.model.response" />
-    </key>
-  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -109,19 +135,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.HrApplication">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="green-backennd" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="green-backennd" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="core" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.core.CoreApplication" />
@@ -136,9 +149,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="HrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="hr" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.green.hr.HrApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.green.hr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,6 +176,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.HrApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -184,8 +208,22 @@
       <workItem from="1724812994621" duration="2370000" />
       <workItem from="1724982435790" duration="6356000" />
       <workItem from="1725500560417" duration="6216000" />
-      <workItem from="1726047759762" duration="44000" />
-      <workItem from="1726727702682" duration="68000" />
+      <workItem from="1725516835286" duration="7497000" />
+      <workItem from="1725588738830" duration="12926000" />
+      <workItem from="1725620041434" duration="2252000" />
+      <workItem from="1725623369503" duration="2560000" />
+      <workItem from="1725848612133" duration="140000" />
+      <workItem from="1725867295142" duration="11287000" />
+      <workItem from="1726045694399" duration="1208000" />
+      <workItem from="1726479432454" duration="724000" />
+      <workItem from="1726481271291" duration="870000" />
+      <workItem from="1726491962676" duration="301000" />
+      <workItem from="1726492277408" duration="10730000" />
+      <workItem from="1726542068638" duration="10316000" />
+      <workItem from="1726555546581" duration="8792000" />
+      <workItem from="1726582342239" duration="264000" />
+      <workItem from="1726582621534" duration="6720000" />
+      <workItem from="1726628420535" duration="5795000" />
     </task>
     <servers />
   </component>
@@ -206,75 +244,68 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/EmployeeController.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/EmployeeController.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/EmployeeController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/converter/EmployeeConverter.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/EmployeeService.java</url>
-          <line>31</line>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>36</line>
+          <properties class="org.green.hr.controller.QualificationController">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/IContractService.java</url>
+          <line>20</line>
+          <properties class="org.green.hr.service.IContractService">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/EmployeeService.java</url>
-          <line>33</line>
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>41</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/EmployeeService.java</url>
-          <line>35</line>
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>44</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/QualificationController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/controller/ContractController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hr/src/main/java/org/green/hr/service/impl/ContractService.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

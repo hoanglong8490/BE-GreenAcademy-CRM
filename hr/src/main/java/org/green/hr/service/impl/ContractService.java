@@ -1,135 +1,138 @@
 package org.green.hr.service.impl;
 
+import jakarta.transaction.Transactional;
+import org.green.hr.converter.ContractConverter;
 import org.green.hr.dto.ContractDTO;
 import org.green.hr.entity.Contract;
-import org.green.hr.entity.Employee;
+import org.green.hr.exception.ResourceNotFoundException;
+import org.green.hr.model.request.ContractSearch;
+import org.green.hr.model.response.ContractResponse;
 import org.green.hr.repository.ContractRepository;
-import org.green.hr.repository.EmployeeRepository;
 import org.green.hr.service.IContractService;
+import org.green.hr.util.ExcelHelper;
+import org.green.hr.util.UploadFile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.time.Instant;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.io.IOException;
 
 @Service
 public class ContractService implements IContractService {
+
     @Autowired
     private ContractRepository contractRepository;
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private ContractConverter contractConverter;
+
+    @Autowired
+    private UploadFile uploadFile;
+
+    @Transactional
+    @Override
+    public ContractDTO handleSaveContract(ContractDTO contractDTO, MultipartFile contractContent) {
+        // Chuyển đổi DTO sang entity
+        Contract contract = contractConverter.convertToEntity(contractDTO);
+
+        // Xử lý file contractContent (nếu cần lưu hoặc thao tác với file)
+        if (contractContent != null && !contractContent.isEmpty()) {
+            // Lấy nội dung file dưới dạng chuỗi
+            String content = this.uploadFile.uploadFileContract(contractContent);
+
+            // Lưu nội dung file vào trường contentContract của entity Contract
+            contract.setContentContract(content);
+        }
+        else contract.setContentContract(null);
+
+        // Lưu entity vào database
+        contract = contractRepository.save(contract);
+
+        // Chuyển đổi entity sang DTO và trả về kết quả
+        return contractConverter.convertToDTO(contract);
+    }
 
     @Override
-    public List<ContractDTO> getAllContracts() {
-        return contractRepository.findAll().stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+    public Page<ContractResponse> getAllContracts(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Contract> contractsPage = contractRepository.findAll(pageable);
+        return contractsPage.map(contract -> contractConverter.convertToResponse(contract));
     }
 
     @Override
     public ContractDTO getContractById(Long id) {
-        Optional<Contract> contract = contractRepository.findById(id);
-        return contract.map(this::convertToDTO).orElse(null);
+        Contract contract = contractRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Contract not found with id: " + id));
+        return contractConverter.convertToDTO(contract);
     }
 
     @Override
-    public ContractDTO createContract(ContractDTO contractDTO) {
-        Contract contract = convertToEntity(contractDTO);
-        contract.setCreateAt(new Date());
-        Contract savedContract = contractRepository.save(contract);
-        return convertToDTO(savedContract);
-    }
+    @Transactional
+    public ContractResponse updateContract(ContractDTO contractDTO, MultipartFile contractContent, Long id) {
+        // Find the existing contract
+        Contract existingContract = contractRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Contract not found with id: " + id));
 
-    @Override
-    public ContractDTO updateContract(Long id, ContractDTO contractDTO) {
-        Optional<Contract> existingContractOpt = contractRepository.findById(id);
-        if (existingContractOpt.isPresent()) {
-            Contract existingContract = existingContractOpt.get();
-            existingContract.setContractCode(contractDTO.getContractCode());
-            existingContract.setContractCategory(contractDTO.getContractCategory());
-            existingContract.setContentContract(convertFilesToString(contractDTO.getContentContract())); // Convert list to string
-            existingContract.setSalary(contractDTO.getSalary());
-            existingContract.setDateStart(contractDTO.getDateStart());
-            existingContract.setDateEnd(contractDTO.getDateEnd());
-            existingContract.setStatus(contractDTO.getStatus());
-            existingContract.setUpdateAt(new Date());
+        Contract updatedContract = contractConverter.updateEntityFromDTO(contractDTO, existingContract);
 
-            Contract updatedContract = contractRepository.save(existingContract);
-            return convertToDTO(updatedContract);
+        if (contractContent != null && !contractContent.isEmpty()) {
+            // Upload the new file and get the content
+            String content = this.uploadFile.uploadFileContract(contractContent);
+            updatedContract.setContentContract(content);
         }
-        return null;
+        updatedContract = contractRepository.save(updatedContract);
+
+        return contractConverter.convertToResponse(updatedContract);
+    }
+
+
+    @Override
+    public ContractResponse searchContracts(int pageNo, int pageSize, ContractSearch contractSearch) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Contract> contractsPage = contractRepository.findByCriteria(
+                contractSearch.getSearchTerm(),
+                contractSearch.getContractCategory(),
+                contractSearch.getMinSalary(),
+                contractSearch.getMaxSalary(),
+                contractSearch.getEmployeeCode(),
+                pageable
+        );
+        return (ContractResponse) contractsPage.map(contract -> contractConverter.convertToResponse(contract));
     }
 
     @Override
-    public List<ContractDTO> searchByCategoryAndSalary(String contractCategory, Float salary) {
-        List<Contract> contracts = contractRepository.findByContractCategoryAndSalary(contractCategory, salary);
-        return contracts.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+    public ContractResponse deleteContract(Long id) {
+        // Tìm hợp đồng theo ID
+        Contract contract = contractRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Contract not found with id: " + id));
+
+        // Cập nhật trạng thái thành false (hoặc giá trị tương ứng)
+        contract.setStatus((short) 0);
+        contractRepository.save(contract);
+        return new ContractResponse("Contract status updated successfully");
+    }
+
+
+
+    @Override
+    public Page<ContractResponse> filterContracts(int pageNo, int pageSize, ContractSearch contractSearch) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Contract> contractsPage = contractRepository.findByCriteria(
+                contractSearch.getSearchTerm(),
+                contractSearch.getContractCategory(),
+                contractSearch.getMinSalary(),
+                contractSearch.getMaxSalary(),
+                contractSearch.getEmployeeCode(),
+                pageable
+        );
+        return contractsPage.map(contract -> contractConverter.convertToResponse(contract));
     }
 
     @Override
-    public boolean deleteContract(Long id) {
-        Optional<Contract> contract = contractRepository.findById(id);
-        if (contract.isPresent()) {
-            contractRepository.markAsDeleted(id);
-            return true;
-        }
-        return false;
-    }
+    public void importDataFromExcel(MultipartFile multipartFile) {
 
-    @Override
-    public List<ContractDTO> searchContractsByName(String contractName) {
-        List<Contract> contracts = contractRepository.findByContractName("%" + contractName + "%");
-        return contracts.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<ContractDTO> sortContractsByStatus() {
-        List<Contract> contracts = contractRepository.findAll();
-        return contracts.stream()
-                .sorted(Comparator.comparing(Contract::getStatus))
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-    }
-
-    private ContractDTO convertToDTO(Contract contract) {
-        ContractDTO contractDTO = new ContractDTO();
-        contractDTO.setId(contract.getId());
-        contractDTO.setContractCode(contract.getContractCode());
-        contractDTO.setContractCategory(contract.getContractCategory());
-        contractDTO.setContentContract(contract.getContentContractFiles()); // Convert string to list
-        contractDTO.setSalary(contract.getSalary());
-        contractDTO.setDateStart(contract.getDateStart());
-        contractDTO.setDateEnd(contract.getDateEnd());
-        contractDTO.setStatus(contract.getStatus());
-        contractDTO.setEmployee_id(contract.getEmployee().getId());
-        return contractDTO;
-    }
-
-    private Contract convertToEntity(ContractDTO contractDTO) {
-        Contract contract = new Contract();
-        contract.setContractCode(contractDTO.getContractCode());
-        contract.setContractCategory(contractDTO.getContractCategory());
-        contract.setContentContractFiles(contractDTO.getContentContract()); // Convert list to string
-        contract.setSalary(contractDTO.getSalary());
-        contract.setDateStart(contractDTO.getDateStart());
-        contract.setDateEnd(contractDTO.getDateEnd());
-        contract.setStatus(contractDTO.getStatus());
-        Employee employee = employeeRepository.findById(contractDTO.getEmployee_id()).orElse(null);
-        contract.setEmployee(employee);
-        return contract;
-    }
-
-    // Chuyển File thành String cách nhau bởi dấu ","
-    private String convertFilesToString(List<String> files) {
-        return files == null ? null : String.join(",", files);
     }
 }
