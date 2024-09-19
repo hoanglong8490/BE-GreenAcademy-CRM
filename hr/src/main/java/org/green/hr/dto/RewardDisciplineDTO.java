@@ -1,16 +1,18 @@
 package org.green.hr.dto;
 
-import lombok.Data;
+import lombok.*;
 
 import java.util.Date;
 
+@Data
 public class RewardDisciplineDTO {
     private Long id;
     private String content;
-    private Data decisionDate;
+    private Date decisionDate;
     private Float money;
     private String category;
     private String rdImages;
+    private String rdImagesPath;
     private Short status;
     private Date createAt;
     private Date updateAt;

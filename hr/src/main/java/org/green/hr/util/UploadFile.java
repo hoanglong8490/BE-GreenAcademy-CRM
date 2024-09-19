@@ -64,4 +64,25 @@ public class UploadFile {
         // Trả về đường dẫn của file (trong thư mục uploads, có thể truy cập từ URL)
         return "/hr_file/" + fileName;
     }
+
+    // upload file Reward_Discipline
+    public String uploadFileRD(MultipartFile multipartFile) {
+        makeDirectoryIfNotExists();
+        // Tạo tên file duy nhất bằng UUID
+        String fileName = UUID.randomUUID() + "_" + multipartFile.getOriginalFilename();
+        Path filePath = Paths.get(UPLOAD_DIR_FILE + fileName);
+
+        try {
+            Files.write(filePath, multipartFile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace(); // Xử lý lỗi khi không thể ghi file
+            return null;
+        }
+        // Trả về đường dẫn của file (trong thư mục uploads, có thể truy cập từ URL)
+        return "/hr_file/Reward_Discipline/" + fileName;
+    }
+
+
+
+
 }
