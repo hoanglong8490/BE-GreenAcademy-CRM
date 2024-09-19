@@ -3,8 +3,11 @@ package org.green.hr.controller;
 import org.green.core.constant.Constant;
 import org.green.core.model.response.CoreResponse;
 import org.green.hr.dto.ContractDTO;
+import org.green.hr.dto.RewardDisciplineDTO;
 import org.green.hr.model.request.ContractSearch;
+import org.green.hr.model.request.RDSearch;
 import org.green.hr.service.IContractService;
+import org.green.hr.service.IRewardDisciplineService;
 import org.green.hr.util.UploadFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,84 +17,83 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/hr/contracts")
+@RequestMapping("/hr/reward-disciplines")
 @CrossOrigin
-public class ContractController {
-
+public class RewardDisciplineController {
     @Autowired
-    private IContractService contractService;
+    private IRewardDisciplineService rewardDisciplineService;
 
     @Autowired
     private UploadFile uploadFile;
 
     @GetMapping
-    public ResponseEntity<CoreResponse> getAllContracts(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
+    public ResponseEntity<CoreResponse> getAllRewardDisciplines(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
                                                         @RequestParam(name = "size", defaultValue = "10", required = false) int pageSize) {
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage(Constant.SUCCESS_MESSAGE)
-                .setData(this.contractService.getAllContracts(pageNo - 1, pageSize));
+                .setData(this.rewardDisciplineService.getAllRewardDisciplines(pageNo - 1, pageSize));
 
         return ResponseEntity.ok().body(coreResponse);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CoreResponse> getContractById(@PathVariable Long id) {
+    public ResponseEntity<CoreResponse> getRewardDisciplineId(@PathVariable Long id) {
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage("Contract found")
-                .setData(this.contractService.getContractById(id));
+                .setData(this.rewardDisciplineService.getRewardDisciplineById(id));
 
         return ResponseEntity.ok().body(coreResponse);
     }
 
     @PostMapping("/search")
-    public ResponseEntity<CoreResponse> searchContracts(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
+    public ResponseEntity<CoreResponse> searchRewardDisciplines(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
                                                         @RequestParam(name = "size", defaultValue = "10", required = false) int pageSize,
-                                                        @RequestBody ContractSearch contractSearch) {
+                                                        @RequestBody RDSearch rdSearch) {
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage("Search success")
-                .setData(this.contractService.searchContracts(pageNo - 1, pageSize, contractSearch));
+                .setData(this.rewardDisciplineService.searchRewardDisciplines(pageNo - 1, pageSize, rdSearch));
 
         return ResponseEntity.ok().body(coreResponse);
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<CoreResponse> filterContracts(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
+    public ResponseEntity<CoreResponse> filterRewardDisciplines(@RequestParam(name = "page", defaultValue = "1", required = false) int pageNo,
                                                         @RequestParam(name = "size", defaultValue = "10", required = false) int pageSize,
-                                                        @RequestBody ContractSearch contractSearch) {
+                                                        @RequestBody RDSearch rdSearch) {
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage("Filter success")
-                .setData(this.contractService.filterContracts(pageNo - 1, pageSize, contractSearch));
+                .setData(this.rewardDisciplineService.filterRewardDisciplines(pageNo - 1, pageSize, rdSearch));
 
         return ResponseEntity.ok().body(coreResponse);
     }
 
     @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<CoreResponse> createContract(
-            @RequestPart(value = "contractDTO", required = false) ContractDTO contractDTO,
-            @RequestPart(value = "contentContract", required = false) MultipartFile contractContent) {
+    public ResponseEntity<CoreResponse> createRewardDiscipline(
+            @RequestPart(value = "decisionDTO", required = false) RewardDisciplineDTO rewardDisciplineDTO,
+            @RequestPart(value = "rdImages", required = false) MultipartFile rdImages) {
 
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage("Contract created")
-                .setData(this.contractService.handleSaveContract(contractDTO, contractContent));
+                .setData(this.rewardDisciplineService.handleSaveRewardDiscipline(rewardDisciplineDTO, rdImages));
 
-            return ResponseEntity.status(HttpStatus.CREATED).body(coreResponse);
+        return ResponseEntity.status(HttpStatus.CREATED).body(coreResponse);
     }
 
     @PutMapping(value = "/{id}" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<CoreResponse> updateContract(
             @PathVariable(value = "id") Long id,
-            @RequestPart(value = "contractDTO", required = true) ContractDTO contractDTO,
-            @RequestPart(value = "contentContract", required = false) MultipartFile contractContent) {
+            @RequestPart(value = "decisionDTO", required = true) RewardDisciplineDTO rewardDisciplineDTO,
+            @RequestPart(value = "rdImages", required = false) MultipartFile rdImages) {
 
-        if (contractDTO == null) {
+        if (rewardDisciplineDTO == null) {
             return ResponseEntity.status(Constant.BAD_REQUEST)
                     .body(new CoreResponse()
                             .setCode(Constant.BAD_REQUEST)
@@ -102,7 +104,7 @@ public class ContractController {
             CoreResponse coreResponse = new CoreResponse()
                     .setCode(Constant.SUCCESS)
                     .setMessage("Contract updated")
-                    .setData(this.contractService.updateContract(contractDTO, contractContent, id));
+                    .setData(this.rewardDisciplineService.updateRewardDiscipline(rewardDisciplineDTO, rdImages, id));
 
             return ResponseEntity.ok().body(coreResponse);
         } catch (Exception e) {
@@ -120,7 +122,7 @@ public class ContractController {
         CoreResponse coreResponse = new CoreResponse()
                 .setCode(Constant.SUCCESS)
                 .setMessage("Contract deleted")
-                .setData(this.contractService.deleteContract(id));
+                .setData(this.rewardDisciplineService.deleteRewardDiscipline(id));
 
         return ResponseEntity.ok().body(coreResponse);
     }
@@ -136,7 +138,7 @@ public class ContractController {
         }
 
         try {
-            this.contractService.importDataFromExcel(file);
+            this.rewardDisciplineService.importDataFromExcel(file);
 
             CoreResponse coreResponse = new CoreResponse()
                     .setCode(Constant.SUCCESS)
