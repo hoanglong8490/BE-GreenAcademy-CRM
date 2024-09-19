@@ -27,6 +27,12 @@ public enum ErrorCode {
   OVERTIME_NOT_FOUND(BAD_REQUEST,"OvertimeId not found", HttpStatus.BAD_REQUEST),
   MONEY_NOT_NULL(BAD_REQUEST,"Money is not null", HttpStatus.BAD_REQUEST),
   SALARY_ADVANCE_NOT_FOUND(BAD_REQUEST,"SalaryAdvanceId not found", HttpStatus.BAD_REQUEST),
+  DAY_NUMBER_NOT_NULL(BAD_REQUEST,"Day number not null", HttpStatus.BAD_REQUEST),
+  DATE_NOT_NULL(BAD_REQUEST,"Date not null", HttpStatus.BAD_REQUEST),
+  TIME_OFF_NOT_FOUND(BAD_REQUEST,"TimeOffId not found", HttpStatus.BAD_REQUEST),
+
+  DATE_END_BEFORE_DATE_START(BAD_REQUEST,"The end date cannot be less than the start date",HttpStatus.BAD_REQUEST),
+
   UNCATEGORIZED_EXCEOPTION(INTERNAL_SERVER_ERROR, "Uncategorized error", HttpStatus.INTERNAL_SERVER_ERROR);
 
 

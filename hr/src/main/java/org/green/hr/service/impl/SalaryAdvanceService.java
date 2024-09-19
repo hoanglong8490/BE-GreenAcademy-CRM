@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.NonNull;
 import org.green.hr.converter.SalaryAdvanceConverter;
 import org.green.hr.dto.SalaryAdvanceDTO;
 import org.green.hr.entity.Employee;
@@ -14,6 +15,8 @@ import org.green.hr.repository.EmployeeRepository;
 import org.green.hr.repository.SalaryAdvanceRepository;
 import org.green.hr.service.ISalaryAdvanceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,7 +38,8 @@ public class SalaryAdvanceService implements ISalaryAdvanceService {
   }
 
   @Override
-  public SalaryAdvanceDTO updateSalaryAdvance(long salaryAdvanceId, SalaryAdvanceDTO salaryAdvanceDTO) {
+  public SalaryAdvanceDTO updateSalaryAdvance(long salaryAdvanceId,
+      SalaryAdvanceDTO salaryAdvanceDTO) {
     SalaryAdvance salaryAdvance = salaryAdvanceRepository.findById(salaryAdvanceId)
         .orElseThrow(() -> new AppException(ErrorCode.SALARY_ADVANCE_NOT_FOUND));
     salaryAdvance.setMoney(salaryAdvanceDTO.getMoney());
@@ -59,6 +63,11 @@ public class SalaryAdvanceService implements ISalaryAdvanceService {
     salaryAdvanceList.sort(Comparator.comparingLong(SalaryAdvance::getId).reversed());
     return salaryAdvanceList.stream().map(SalaryAdvanceConverter::convertToDTO)
         .collect(Collectors.toList());
+  }
+
+  @Override
+  public Page<SalaryAdvanceDTO> getAllSalaryAdvances(@NonNull Pageable pageable) {
+    return salaryAdvanceRepository.findAll(pageable).map(SalaryAdvanceConverter::convertToDTO);
   }
 
   @Override
