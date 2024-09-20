@@ -247,3 +247,7 @@ ALTER TABLE contract
 ALTER TABLE qualification
     ADD COLUMN image VARCHAR(255);
 
+-- changeset reward_discipline:3
+ALTER TABLE reward_discipline
+    ADD COLUMN IF NOT EXISTS rd_images VARCHAR(255);
+
