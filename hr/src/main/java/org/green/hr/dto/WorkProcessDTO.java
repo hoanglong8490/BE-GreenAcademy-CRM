@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class WorkProcessDTO {
   Long workProcessId;
-  Integer timeOff;
+
   @JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
   Date workDate;
   @NotNull(message = "STATUS_NULL")
@@ -28,6 +28,8 @@ public class WorkProcessDTO {
   Date createAt;
   @JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
   Date updateAt;
+  @NotNull(message = "TIME_OFF_NOT_FOUND")
+  Long timeOffId;
   @NotNull(message = "EMPLOYEE_NOT_FOUND")
   Long employeeId;
   @NotNull(message = "REWARD_DISCIPLINE_NOT_FOUND")

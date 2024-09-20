@@ -22,9 +22,7 @@ public class WorkProcess {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Column(name = "time_off", nullable = false)
-    private Integer timeOff;
+
 
     @NotNull
     @Column(name = "work_date", nullable = false)
@@ -38,6 +36,11 @@ public class WorkProcess {
 
     @Column(name = "update_at")
     private Date updateAt;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "time_off_id", nullable = false)
+    private TimeOff timeOff;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

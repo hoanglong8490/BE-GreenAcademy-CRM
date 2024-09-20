@@ -251,3 +251,11 @@ ALTER TABLE qualification
 ALTER TABLE reward_discipline
     ADD COLUMN IF NOT EXISTS rd_images VARCHAR(255);
 
+-- changeset work_process:2
+ALTER TABLE work_process
+    DROP CONSTRAINT IF EXISTS fk_work_process_time_off;
+
+-- changeset work_process:3
+ALTER TABLE work_process
+    ADD CONSTRAINT  fk_work_process_time_off
+        FOREIGN KEY (time_off_id) REFERENCES time_off (id);

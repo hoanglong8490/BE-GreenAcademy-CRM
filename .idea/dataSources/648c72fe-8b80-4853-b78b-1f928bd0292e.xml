@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>25935</IntrospectionStateNumber>
+      <IntrospectionStateNumber>26146</IntrospectionStateNumber>
       <ServerVersion>16.3</ServerVersion>
       <StartupTime>1723794720</StartupTime>
       <TimeZones>true ACDT
@@ -1399,7 +1399,7 @@ true posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>25935</IntrospectionStateNumber>
+      <IntrospectionStateNumber>26146</IntrospectionStateNumber>
       <ObjectId>58357</ObjectId>
       <OwnerName>green</OwnerName>
     </database>
@@ -4883,8 +4883,8 @@ true posixrules
     <schema id="277" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>25935</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-09-19.15:24:50</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>26146</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-09-20.03:09:46</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -5205,7 +5205,7 @@ true posixrules
     </table>
     <table id="319" parent="277" name="class_member">
       <ObjectId>58520</ObjectId>
-      <StateNumber>25130</StateNumber>
+      <StateNumber>26010</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>green</OwnerName>
     </table>
@@ -5901,10 +5901,10 @@ true posixrules
       <TypeId>23</TypeId>
     </column>
     <column id="424" parent="319" name="status">
-      <DasType>text|0s</DasType>
+      <DasType>integer|0s</DasType>
       <Position>4</Position>
-      <StateNumber>25130</StateNumber>
-      <TypeId>25</TypeId>
+      <StateNumber>26010</StateNumber>
+      <TypeId>23</TypeId>
     </column>
     <foreign-key id="425" parent="319" name="fk_student_id">
       <ColNames>student_id</ColNames>
@@ -5924,14 +5924,14 @@ true posixrules
       <ColNames>id</ColNames>
       <ObjectId>58526</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>25130</StateNumber>
+      <StateNumber>26010</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <index id="428" parent="319" name="idx_student_id">
       <ColNames>student_id</ColNames>
       <ObjectId>58614</ObjectId>
-      <StateNumber>25130</StateNumber>
+      <StateNumber>26010</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="429" parent="319" name="Class_Member_pkey">
@@ -8034,11 +8034,11 @@ role_id</ColNames>
       <SequenceId>59509</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="735" parent="348" name="time_off">
+    <column id="735" parent="348" name="time_off_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>18351</StateNumber>
+      <StateNumber>26115</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="736" parent="348" name="work_date">
@@ -8080,7 +8080,14 @@ role_id</ColNames>
       <StateNumber>18351</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="742" parent="348" name="work_process_employee_id_fkey">
+    <foreign-key id="742" parent="348" name="fk_work_process_time_off">
+      <ColNames>time_off_id</ColNames>
+      <ObjectId>59820</ObjectId>
+      <StateNumber>26117</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>59484</RefTableId>
+    </foreign-key>
+    <foreign-key id="743" parent="348" name="work_process_employee_id_fkey">
       <ColNames>employee_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59516</ObjectId>
@@ -8088,7 +8095,7 @@ role_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>59333</RefTableId>
     </foreign-key>
-    <foreign-key id="743" parent="348" name="work_process_reward_discipline_id_fkey">
+    <foreign-key id="744" parent="348" name="work_process_reward_discipline_id_fkey">
       <ColNames>reward_discipline_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59521</ObjectId>
@@ -8096,7 +8103,7 @@ role_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>59496</RefTableId>
     </foreign-key>
-    <index id="744" parent="348" name="work_process_pkey">
+    <index id="745" parent="348" name="work_process_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59514</ObjectId>
@@ -8105,7 +8112,7 @@ role_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="745" parent="348" name="work_process_pkey">
+    <key id="746" parent="348" name="work_process_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59515</ObjectId>
       <Primary>1</Primary>

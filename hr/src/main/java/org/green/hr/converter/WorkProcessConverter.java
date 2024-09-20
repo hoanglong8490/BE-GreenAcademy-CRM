@@ -8,7 +8,6 @@ public class WorkProcessConverter {
   public  static WorkProcess convertToEntity(WorkProcessDTO workProcessDTO){
     return WorkProcess.builder()
         .id(workProcessDTO.getWorkProcessId())
-        .timeOff(workProcessDTO.getTimeOff())
         .workDate(workProcessDTO.getWorkDate())
         .status(workProcessDTO.getStatus())
         .createAt(workProcessDTO.getCreateAt() != null ? workProcessDTO.getCreateAt() : new Date())
@@ -18,11 +17,11 @@ public class WorkProcessConverter {
   public static WorkProcessDTO convertToDTO(WorkProcess workProcess){
     return WorkProcessDTO.builder()
         .workProcessId(workProcess.getId())
-        .timeOff(workProcess.getTimeOff())
         .workDate(workProcess.getWorkDate())
         .status(workProcess.getStatus())
         .createAt(workProcess.getCreateAt())
         .updateAt(workProcess.getUpdateAt())
+        .timeOffId(workProcess.getTimeOff().getId())
         .employeeId(workProcess.getEmployee().getId())
         .rewardDisciplineId(workProcess.getRewardDiscipline().getId())
        .build();
